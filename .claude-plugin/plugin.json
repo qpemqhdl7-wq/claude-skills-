@@ -1,0 +1,9 @@
+{
+  "name": "design-kit",
+  "description": "홈페이지 제작용 디자인 스킬 모음: /homepage 원스톱 워크플로 + UI UX Pro Max (스타일, 팔레트, 폰트, UX 가이드라인)",
+  "version": "1.0.0",
+  "author": { "name": "qpemqhdl7-wq" },
+  "license": "MIT",
+  "keywords": ["homepage", "landing-page", "website", "ui", "ux", "design"],
+  "skills": "./.claude/skills/"
+}
