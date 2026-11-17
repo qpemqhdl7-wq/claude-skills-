@@ -35,12 +35,12 @@
 ## 사용법
 
 ```
-/homepage 강남 필라테스 스튜디오 홈페이지, 체험 수업 예약이 목표
+/짱구맨 강남 필라테스 스튜디오 홈페이지, 체험 수업 예약이 목표
 ```
 
 또는 그냥 "카페 홈페이지 만들어줘"라고 말해도 자동으로 불러옵니다.
 
-`/homepage`가 하는 일:
+`/짱구맨`가 하는 일:
 
 1. 업종·타깃·목표 행동을 정리합니다. 빠진 것만 최대 3개 질문합니다.
 2. ui-ux-pro-max 데이터로 스타일·색상·폰트를 정하고 `design-system/` 폴더에 저장합니다.
@@ -52,8 +52,8 @@
 
 | 스킬 | 용도 |
 |---|---|
-| `homepage` | 홈페이지 원스톱 제작 (이 저장소 자체 제작) |
+| `짱구맨` | 홈페이지 원스톱 제작 (이 저장소 자체 제작) |
 | `ui-ux-pro-max` | 스타일 80종, 팔레트 192종, 폰트 조합 74종, UX 가이드라인 검색 |
 | `design`, `design-system`, `brand`, `ui-styling`, `banner-design`, `slides` | 로고·토큰·브랜드·배너·슬라이드 |
 
-`homepage` 외의 스킬은 [nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) v2.15.0에서 가져왔습니다 (MIT, `LICENSE-ui-ux-pro-max`).
+`짱구맨` 외의 스킬은 [nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) v2.15.0에서 가져왔습니다 (MIT, `LICENSE-ui-ux-pro-max`).

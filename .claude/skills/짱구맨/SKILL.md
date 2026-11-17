@@ -1,5 +1,5 @@
 ---
-name: homepage
+name: 짱구맨
 description: 홈페이지·랜딩페이지·회사 소개 사이트를 처음부터 끝까지 만드는 원스톱 워크플로. ui-ux-pro-max 디자인 데이터로 스타일·색상·폰트를 정하고, 페이지를 구현한 뒤 모바일/데스크톱 스크린샷으로 검수까지 한다. Use when the user asks to build, make, redesign, or improve a homepage, landing page, website, 홈페이지, 랜딩페이지, 웹사이트, or 사이트.
 argument-hint: "[무슨 사이트인지 한 줄 설명, 예: 강남 필라테스 스튜디오 홈페이지]"
 ---
