@@ -1,6 +1,6 @@
 ---
 name: 짱구맨
-description: 홈페이지·랜딩페이지·회사 소개 사이트를 처음부터 끝까지 만드는 원스톱 워크플로. ui-ux-pro-max 디자인 데이터로 스타일·색상·폰트를 정하고, Motion 애니메이션을 넣어 페이지를 구현한 뒤 모바일/데스크톱 스크린샷으로 검수까지 한다. Use when the user asks to build, make, redesign, or improve a homepage, landing page, website, 홈페이지, 랜딩페이지, 웹사이트, or 사이트.
+description: 홈페이지·랜딩페이지·회사 소개 사이트를 처음부터 끝까지 만드는 원스톱 워크플로. ui-ux-pro-max 디자인 데이터로 스타일·색상·폰트를 정하고, 21st.dev 컴포넌트와 Motion 애니메이션으로 페이지를 구현한 뒤 모바일/데스크톱 스크린샷으로 검수까지 한다. Use when the user asks to build, make, redesign, or improve a homepage, landing page, website, 홈페이지, 랜딩페이지, 웹사이트, or 사이트.
 argument-hint: "[무슨 사이트인지 한 줄 설명, 예: 강남 필라테스 스튜디오 홈페이지]"
 ---
 
@@ -8,7 +8,7 @@ argument-hint: "[무슨 사이트인지 한 줄 설명, 예: 강남 필라테스
 
 사용자 요청: $ARGUMENTS
 
-Build a polished, responsive homepage by combining the `ui-ux-pro-max` design data with a build → screenshot → fix loop. Talk to the user in the language they use (Korean by default).
+Build a polished, responsive homepage by combining the `ui-ux-pro-max` design data, 21st.dev components (21st MCP) and Motion animation with a build → screenshot → fix loop. Talk to the user in the language they use (Korean by default).
 
 ## 0. Locate the design search tool
 
@@ -57,6 +57,36 @@ python3 "$UIPRO" "<industry> landing page sections" --domain landing
 3. Summarize the chosen direction to the user in 4–5 lines (스타일, 메인 색상, 폰트, 섹션 구성). Don't wait for approval unless they asked to review first.
 
 For Korean text, pair the recommended Latin font with a Korean webfont (e.g. Pretendard, Noto Sans KR, or Nanum Myeongjo for serif moods) and set `word-break: keep-all` on body text.
+
+## 3b. 21st.dev components (always check)
+
+The **21st** MCP server gives access to the 21st.dev catalog of React/shadcn components, themes and logos. Use it on every 짱구맨 run, after the design system is chosen and before writing sections.
+
+**First, confirm it is connected.** Look for tools whose names end in `21st__search` (e.g. `mcp__21st__search`, or `mcp__plugin_…_21st__search`). If none exist, tell the user once, in their language, that 21st is not connected and how to add it, then continue without it:
+
+```bash
+claude mcp add --scope user --transport http 21st https://21st.dev/api/mcp --header "x-api-key: 21st_sk_..."
+```
+
+**Which tools to use:**
+
+| Step | Tool | Cost |
+|---|---|---|
+| Check quota | `get_usage` | free |
+| Find candidates per section (hero, features, pricing, testimonials, FAQ, CTA, footer, navbar) | `get_inspiration` with the design direction from MASTER.md as `context`, or `search` with `type: "component"` | free |
+| Let the user choose when they want to see options | `search_picker` | free |
+| Get the code of the chosen component | `get_component` with the result `id` | **uses a daily retrieval** |
+| Color/radius tokens | `get_theme` (only if it matches MASTER.md) | free |
+| Brand / SNS logos (Instagram, YouTube, Kakao, Naver, payment marks…) | `search_logo`, then fetch the SVG url | free |
+
+**Rules:**
+- MASTER.md from ui-ux-pro-max stays the source of truth for colors, fonts and spacing. Restyle every 21st component to those tokens; never let one component bring its own palette.
+- Spend retrievals carefully: call `get_usage` first and fetch code only for the 2–3 sections that matter most (usually hero, a feature/benefit grid, pricing or testimonials). Build the rest yourself in the same style. If `get_component` returns `locked: true` or `found: false`, use that result as inspiration only.
+- Search queries are short English design terms (e.g. `"hero section gradient cta"`). Never put the user's business name, customer data, contact info or source code into 21st queries.
+- Don't call `generate`, `iterate_generation`, `send_feedback`, bookmark/list, profile, publish/edit/delete tools unless the user explicitly asks.
+- Stack fit: React/Next.js → install the component's listed dependencies and keep it as a component. Static `index.html` → translate the JSX into plain HTML + Tailwind classes (drop React state, rebuild interactions with a few lines of JS or Motion vanilla).
+- If a 21st component imports `framer-motion`, switch it to `motion/react` (same API) so the page uses one animation library.
+- Tell the user which 21st components you used (name + url) in the hand-off.
 
 ## 4. Build
 
@@ -127,4 +157,4 @@ Serve or open the page and capture it at **390px (mobile)** and **1440px (deskto
 
 ## 6. Hand off
 
-Tell the user briefly (in their language): what was built, file paths, how to open/run it, the design direction chosen, and which placeholder content they should replace. Offer 2–3 concrete next steps (예: 서브페이지 추가, 문의 폼 연결, 배포).
+Tell the user briefly (in their language): what was built, file paths, which 21st components were used, how to open/run it, the design direction chosen, and which placeholder content they should replace. Offer 2–3 concrete next steps (예: 서브페이지 추가, 문의 폼 연결, 배포).
