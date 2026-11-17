@@ -1,6 +1,6 @@
 ---
 name: 짱구맨
-description: 홈페이지·랜딩페이지·회사 소개 사이트를 처음부터 끝까지 만드는 원스톱 워크플로. ui-ux-pro-max 디자인 데이터로 스타일·색상·폰트를 정하고, 페이지를 구현한 뒤 모바일/데스크톱 스크린샷으로 검수까지 한다. Use when the user asks to build, make, redesign, or improve a homepage, landing page, website, 홈페이지, 랜딩페이지, 웹사이트, or 사이트.
+description: 홈페이지·랜딩페이지·회사 소개 사이트를 처음부터 끝까지 만드는 원스톱 워크플로. ui-ux-pro-max 디자인 데이터로 스타일·색상·폰트를 정하고, Motion 애니메이션을 넣어 페이지를 구현한 뒤 모바일/데스크톱 스크린샷으로 검수까지 한다. Use when the user asks to build, make, redesign, or improve a homepage, landing page, website, 홈페이지, 랜딩페이지, 웹사이트, or 사이트.
 argument-hint: "[무슨 사이트인지 한 줄 설명, 예: 강남 필라테스 스튜디오 홈페이지]"
 ---
 
@@ -69,8 +69,57 @@ Rules (from ui-ux-pro-max priorities):
 - Text contrast ≥ 4.5:1, visible focus rings, alt text, semantic landmarks, one `<h1>`
 - SVG icons (Lucide/Heroicons), never emoji as icons
 - Images: real assets from the user when given; otherwise neutral placeholders with correct aspect ratio (reserve space, `loading="lazy"` below the fold)
-- Motion subtle (150–300ms), respect `prefers-reduced-motion`
+- Animate with **Motion** (see section 4b): subtle 150–300ms UI motion, 0.4–0.8s section reveals, always respect `prefers-reduced-motion`
 - `<title>`, meta description, Open Graph tags, favicon
+
+## 4b. Animation with Motion (default library)
+
+Use [Motion](https://motion.dev) (formerly Framer Motion) for all animation instead of hand-written CSS keyframes or other libraries, unless the project already uses a different one.
+
+**React / Next.js projects:** install it if `motion` is not already in `package.json`:
+
+```bash
+npm install motion
+```
+
+```jsx
+import { motion, AnimatePresence, MotionConfig } from "motion/react"
+```
+
+- Next.js App Router: put Motion components in files marked `"use client"` (or import from `"motion/react-client"` in server components).
+- Wrap the app once in `<MotionConfig reducedMotion="user">` so reduced-motion settings are honoured everywhere.
+
+| Use | Pattern |
+|---|---|
+| Hero enter | `<motion.h1 initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: "easeOut" }} />` |
+| Buttons / cards | `<motion.button whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }} />` |
+| Section reveal on scroll | `<motion.section initial={{ opacity: 0, y: 32 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.6 }} />` |
+| Staggered list | parent `variants` with `transition: { staggerChildren: 0.08 }`, children `variants={{ hidden: { opacity: 0, y: 16 }, show: { opacity: 1, y: 0 } }}` |
+| Layout change (tabs, filters, accordion) | `<motion.div layout />` |
+| Exit (modal, mobile menu, toast) | `<AnimatePresence>{open && <motion.div key="menu" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} />}</AnimatePresence>` |
+| Scroll progress bar | `const { scrollYProgress } = useScroll()` → `<motion.div style={{ scaleX: scrollYProgress }} />` |
+
+**Static `index.html` (no build step):** use the vanilla build from the CDN, pinned:
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/motion@14.9.0/dist/motion.js"></script>
+<script>
+  const { animate, inView, stagger, hover, press } = Motion
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches
+  if (!reduce) {
+    animate(".hero > *", { opacity: [0, 1], y: [24, 0] }, { duration: 0.6, delay: stagger(0.1) })
+    inView("[data-reveal]", (el) => { animate(el, { opacity: [0, 1], y: [32, 0] }, { duration: 0.6 }) }, { amount: 0.3 })
+    hover(".btn", (el) => { animate(el, { scale: 1.03 }); return () => animate(el, { scale: 1 }) })
+  }
+</script>
+```
+
+Elements revealed by script must stay visible if JavaScript fails: don't hide them with CSS `opacity: 0` up front — let the animation's starting keyframe do it.
+
+Motion rules:
+- Animate only `transform` (x, y, scale, rotate) and `opacity`; never width/height/top/left (use `layout` instead).
+- One or two motion ideas per page, used consistently. Reveal each section once (`once: true`); no looping attention-grabbers, no parallax on body text.
+- The page must look complete with motion off — check the screenshots both ways.
 
 ## 5. Verify with screenshots
 
