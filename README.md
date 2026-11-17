@@ -46,6 +46,7 @@ claude mcp add --scope user --transport http 21st https://21st.dev/api/mcp --hea
 
 ```
 /짱구맨 강남 필라테스 스튜디오 홈페이지, 체험 수업 예약이 목표
+/jjg 강남 필라테스 스튜디오 홈페이지   ← 같은 기능의 짧은 별칭
 ```
 
 또는 그냥 "카페 홈페이지 만들어줘"라고 말해도 자동으로 불러옵니다.
@@ -64,7 +65,7 @@ claude mcp add --scope user --transport http 21st https://21st.dev/api/mcp --hea
 
 | 스킬 | 용도 |
 |---|---|
-| `짱구맨` | 홈페이지 원스톱 제작 (이 저장소 자체 제작) |
+| `짱구맨` (별칭 `jjg`) | 홈페이지 원스톱 제작 (이 저장소 자체 제작) |
 | `ui-ux-pro-max` | 스타일 80종, 팔레트 192종, 폰트 조합 74종, UX 가이드라인 검색 |
 | `design`, `design-system`, `brand`, `ui-styling`, `banner-design`, `slides` | 로고·토큰·브랜드·배너·슬라이드 |
 
