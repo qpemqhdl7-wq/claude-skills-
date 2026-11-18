@@ -18,6 +18,9 @@
 
 ## 폰트
 - 사이트 전체 폰트: **G마켓 산스** (Light 300 / Medium 500 / Bold 700) — 업체 제공 원본 OTF를 woff2로 변환해 `fonts/`에 포함 (외부 CDN 불필요)
+- 용량 최적화: 자주 쓰는 한글 2,350자 + 자모 + 영문·숫자·기호 + 페이지에 쓰인 모든 글자만 남김 (3종 합계 1.26MB → 약 430KB). 목록에 없는 드문 글자는 기기 기본 폰트로 표시됩니다.
+- 문구에 드문 글자를 새로 넣었다면 `fonts/subset-chars.txt`에 그 글자를 추가하고 원본 OTF로 다시 생성하세요:
+  `pyftsubset GmarketSansMedium.otf --text-file=fonts/subset-chars.txt --flavor=woff2 --layout-features='*' --output-file=fonts/GmarketSansMedium.woff2` (Light·Bold도 동일)
 
 ## 로고 (`assets/`)
 업체 로고 이미지를 벡터(SVG)로 변환해 웹용으로 정리했습니다.
