@@ -24,3 +24,7 @@
 - `ovue-logo-gold.svg` / `ovue-logo-white.svg` — 전체 로고 (Website Creation 포함): 푸터 등 넓은 자리
 - `ovue-badge-gold.svg` / `ovue-badge-white.svg` — 태그라인 없는 로고: 헤더 등 작은 자리
 - `favicon.svg` — 브라우저 탭 아이콘 (네이비 바탕 + 금색 창틀 + O.)
+
+## 컬러
+로고에 맞춰 **네이비 + 골드**로 통일 (상세 값은 `design-system/o-vue-web/MASTER.md`).
+- 버튼: 골드 그라데이션 + 네이비 글자 · 강조 텍스트: 진한 골드 #7A5512 · 어두운 영역: 네이비 #0B1220

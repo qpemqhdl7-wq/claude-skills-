@@ -16,6 +16,21 @@
 
 ### Color Palette
 
+> **Brand override (client logo, 2026-11-18):** palette unified to **navy + gold** to match the gold O.Vue WEB logo. These values replace the generated blue/orange table below.
+>
+> | Role | Value |
+> |---|---|
+> | Primary (buttons) | gold gradient `#F3D58A → #D9A946 → #B8862B`, text navy `#0B1220` |
+> | Primary solid / border | `#B8862B` (hover `#9A6E1E`) |
+> | Gold text on light bg | `#7A5512` (meets 4.5:1) |
+> | Gold soft background | `#FBF4E2` / `#F3E3B8` |
+> | Gold on dark bg | `#F3D58A` / `#E9C46A` |
+> | Dark / navy surfaces | `#0B1220`, `#111A2E`, `#1B2742` |
+> | Ink / body text | `#0F172A` / `#1E293B`, muted `#475569` |
+> | Background / card / border | `#F8FAFC` / `#FFFFFF` / `#E2E8F0` |
+> | Success (checks) | `#059669` |
+
+
 | Role | Hex | CSS Variable |
 |------|-----|--------------|
 | Primary | `#2563EB` | `--color-primary` |
