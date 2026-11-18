@@ -12,11 +12,12 @@
 <meta property="og:locale" content="ko_KR">
 <meta name="theme-color" content="#2563EB">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%232563EB'/%3E%3Ccircle cx='32' cy='32' r='15' fill='none' stroke='white' stroke-width='7'/%3E%3Ccircle cx='46' cy='18' r='5' fill='%23F97316'/%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" rel="stylesheet">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <style>
+/* Brand font: G마켓 산스 (Gmarket Sans, 상업적 사용 무료) */
+@font-face{font-family:'GmarketSans';font-weight:300;font-style:normal;font-display:swap;src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('woff')}
+@font-face{font-family:'GmarketSans';font-weight:500;font-style:normal;font-display:swap;src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff')}
+@font-face{font-family:'GmarketSans';font-weight:700;font-style:normal;font-display:swap;src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') format('woff')}
 /* ===== Design tokens (design-system/o-vue-web/MASTER.md) ===== */
 :root{
   --primary:#2563EB; --primary-600:#1D4ED8; --primary-50:#EFF4FF; --primary-100:#DBE6FE;
@@ -32,8 +33,8 @@
   --shadow-md:0 6px 16px -4px rgba(15,23,42,.10);
   --shadow-lg:0 18px 40px -12px rgba(15,23,42,.18);
   --shadow-xl:0 30px 60px -20px rgba(37,99,235,.35);
-  --font-ko:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;
-  --font-en:"Outfit",var(--font-ko);
+  --font-ko:"GmarketSans",-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  --font-en:var(--font-ko);
   --container:1180px;
 }
 *,*::before,*::after{box-sizing:border-box}
@@ -43,7 +44,7 @@ body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font-ko);fo
 img,svg{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
 button{font:inherit;cursor:pointer}
-h1,h2,h3,h4{color:var(--ink);margin:0;line-height:1.25;letter-spacing:-.025em;text-wrap:balance}
+h1,h2,h3,h4{color:var(--ink);margin:0;line-height:1.3;letter-spacing:-.015em;text-wrap:balance}
 p{margin:0}
 :focus-visible{outline:3px solid var(--ring);outline-offset:3px;border-radius:6px}
 .container{width:100%;max-width:var(--container);margin:0 auto;padding:0 20px}
@@ -90,12 +91,12 @@ p{margin:0}
   background-image:linear-gradient(to right,rgba(37,99,235,.08) 1px,transparent 1px),linear-gradient(to bottom,rgba(37,99,235,.08) 1px,transparent 1px);
   background-size:44px 44px;-webkit-mask-image:radial-gradient(ellipse 80% 70% at 50% 30%,#000 30%,transparent 75%);mask-image:radial-gradient(ellipse 80% 70% at 50% 30%,#000 30%,transparent 75%)}
 .hero-glow{position:absolute;z-index:-1;width:620px;height:620px;border-radius:50%;filter:blur(90px);opacity:.35;pointer-events:none}
-.hero-glow.a{background:#93B4FB;top:-260px;right:-160px}
-.hero-glow.b{background:#FDBA8C;bottom:-320px;left:-240px;opacity:.25}
+.hero-glow.glow-a{background:#93B4FB;top:-260px;right:-160px}
+.hero-glow.glow-b{background:#FDBA8C;bottom:-320px;left:-240px;opacity:.25}
 .hero-inner{display:grid;gap:48px;align-items:center}
 .badge{display:inline-flex;align-items:center;gap:8px;padding:6px 14px 6px 6px;border-radius:999px;background:var(--surface);border:1px solid var(--border);font-size:14px;font-weight:600;color:var(--fg);box-shadow:var(--shadow-sm)}
 .badge .pill{background:var(--accent-soft);color:var(--accent-ink);padding:3px 10px;border-radius:999px;font-size:12.5px;font-weight:700}
-.hero h1{font-size:clamp(38px,9vw,68px);font-weight:800;letter-spacing:-.04em;margin:22px 0 20px;line-height:1.14}
+.hero h1{font-size:clamp(38px,9vw,68px);font-weight:800;letter-spacing:-.02em;margin:22px 0 20px;line-height:1.14}
 .hero h1 .hl{color:var(--primary);position:relative;white-space:nowrap}
 .hero h1 .hl::after{content:"";position:absolute;left:0;right:0;bottom:.06em;height:.22em;background:var(--primary-100);z-index:-1;border-radius:4px}
 .hero .lead{font-size:clamp(16px,2.4vw,19px);color:var(--fg-muted);max-width:34em}
@@ -105,7 +106,7 @@ p{margin:0}
 .checks .icon{width:18px;height:18px;color:var(--success)}
 
 /* Hero mockup */
-.mock{position:relative;max-width:560px;margin:0 auto;width:100%}
+.mock{position:relative;width:100%}
 .browser{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);box-shadow:var(--shadow-xl);overflow:hidden}
 .browser-top{display:flex;align-items:center;gap:6px;padding:12px 14px;border-bottom:1px solid var(--border);background:#F8FAFC}
 .browser-top i{width:10px;height:10px;border-radius:50%;background:#E2E8F0}
@@ -173,7 +174,7 @@ section{position:relative}
 .b p{color:var(--dark-muted);font-size:14.5px;margin-top:6px}
 .b-copy{margin-top:16px;position:relative;z-index:2}
 .b-tall .b-copy{background:rgba(11,18,32,.6);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border-radius:10px}
-.b-type{font-size:clamp(84px,14vw,120px);font-weight:800;color:#fff;line-height:1;letter-spacing:-.04em;display:inline-block}
+.b-type{font-size:clamp(84px,14vw,120px);font-weight:800;color:#fff;line-height:1;letter-spacing:-.02em;display:inline-block}
 .b-type span{color:#60A5FA}
 .b-layout{display:grid;gap:6px;width:100%;max-width:150px;grid-template-columns:1fr 1fr}
 .b-layout.c3{grid-template-columns:repeat(3,1fr)}.b-layout.c1{grid-template-columns:1fr}
@@ -290,7 +291,7 @@ section{position:relative}
 @media (min-width:768px){.steps{grid-template-columns:repeat(2,1fr)}}
 @media (min-width:1100px){.steps{grid-template-columns:repeat(4,1fr)}}
 .step{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:28px 24px;position:relative}
-.step .num{font-family:var(--font-en);font-weight:800;font-size:44px;line-height:1;color:var(--primary-100);letter-spacing:-.04em}
+.step .num{font-family:var(--font-en);font-weight:800;font-size:44px;line-height:1;color:var(--primary-100);letter-spacing:-.02em}
 .step h3{font-size:19px;margin:14px 0 8px}
 .step p{color:var(--fg-muted);font-size:15px}
 .step .meta{display:inline-block;margin-top:16px;font-size:13px;font-weight:700;color:var(--accent-ink);background:var(--accent-soft);padding:4px 10px;border-radius:999px}
@@ -367,6 +368,62 @@ footer .copy{margin-top:32px;padding-top:24px;border-top:1px solid rgba(255,255,
 .mbar a{min-height:50px;border-radius:14px;display:flex;align-items:center;justify-content:center;gap:8px;font-weight:700;font-size:15.5px}
 .mbar .k{background:#FEE500;color:#191919}.mbar .c{background:var(--primary);color:#fff}
 @media (min-width:768px){.mbar{display:none}.fab{display:flex}}
+
+/* ===== 3D motion layer ===== */
+[data-tilt]{position:relative;transform-style:preserve-3d;will-change:transform}
+.glare{position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:6;opacity:0;transition:opacity .25s;
+  background:radial-gradient(circle at var(--gx,50%) var(--gy,50%),rgba(255,255,255,.28),transparent 55%)}
+[data-tilt]:hover > .glare{opacity:1}
+/* Hero stage */
+.mock-wrap{position:relative;perspective:1400px;max-width:560px;margin:0 auto;width:100%}
+.mock{transform-style:preserve-3d;transform:rotateY(-12deg) rotateX(6deg)}
+.mock .phone{transform:translateZ(70px)}
+.mock .float-card{transform:translateZ(110px)}
+.hero-floor{position:absolute;left:-30%;right:-30%;bottom:-6%;height:46%;z-index:-1;overflow:hidden;pointer-events:none;
+  transform:perspective(520px) rotateX(64deg);transform-origin:50% 100%;
+  -webkit-mask-image:linear-gradient(to top,#000 10%,transparent 85%);mask-image:linear-gradient(to top,#000 10%,transparent 85%)}
+.hero-floor i{position:absolute;left:0;right:0;top:-60px;bottom:0;
+  background-image:linear-gradient(to right,rgba(37,99,235,.28) 1px,transparent 1px),linear-gradient(to bottom,rgba(37,99,235,.28) 1px,transparent 1px);background-size:60px 60px}
+/* 3D shapes */
+.shapes{position:absolute;inset:0;pointer-events:none;perspective:900px}
+.shapes.front{z-index:4}
+.cube{--s:56px;position:absolute;width:var(--s);height:var(--s);transform-style:preserve-3d;transform:rotateX(-24deg) rotateY(38deg)}
+.cube i{position:absolute;inset:0;border-radius:12px;border:1px solid rgba(255,255,255,.45);background:linear-gradient(135deg,#60A5FA,#2563EB)}
+.cube i:nth-child(1){transform:translateZ(calc(var(--s) / 2))}
+.cube i:nth-child(2){transform:rotateY(180deg) translateZ(calc(var(--s) / 2));background:linear-gradient(135deg,#1D4ED8,#1E3A8A)}
+.cube i:nth-child(3){transform:rotateY(90deg) translateZ(calc(var(--s) / 2));background:linear-gradient(135deg,#3B82F6,#1D4ED8)}
+.cube i:nth-child(4){transform:rotateY(-90deg) translateZ(calc(var(--s) / 2));background:linear-gradient(135deg,#93C5FD,#3B82F6)}
+.cube i:nth-child(5){transform:rotateX(90deg) translateZ(calc(var(--s) / 2));background:linear-gradient(135deg,#BFDBFE,#60A5FA)}
+.cube i:nth-child(6){transform:rotateX(-90deg) translateZ(calc(var(--s) / 2));background:linear-gradient(135deg,#1E40AF,#172554)}
+.cube.orange i{background:linear-gradient(135deg,#FDBA74,#EA580C)}
+.cube.orange i:nth-child(2n){background:linear-gradient(135deg,#F97316,#9A3412)}
+.cube.glass i{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.5);backdrop-filter:blur(2px)}
+.orb{position:absolute;border-radius:50%;background:radial-gradient(circle at 32% 28%,#FFE4D1 0,#FB923C 32%,#C2410C 75%,#7C2D12 100%);box-shadow:0 18px 30px -10px rgba(194,65,12,.5)}
+.torus{position:absolute;border-radius:50%;border:9px solid #93C5FD;box-shadow:inset 0 0 0 2px rgba(255,255,255,.6),0 10px 24px -8px rgba(37,99,235,.45);transform:rotateX(68deg) rotateY(12deg)}
+.hero .s1{--s:62px;top:-34px;left:-14px}
+.hero .s2{--s:34px;bottom:-26px;right:34%}
+.hero .s3{width:96px;height:96px;top:-46px;right:-18px}
+.hero .s4{width:46px;height:46px;bottom:4%;left:-22px}
+@media (max-width:640px){.hero .s1{--s:44px;left:0}.hero .s3{width:64px;height:64px;right:0}.hero .s4{width:34px;height:34px;left:0}}
+/* Crossing marquee ribbons */
+.ribbons{position:relative;overflow:hidden;padding:34px 0;background:var(--bg)}
+.ribbons .marquee{width:112%;margin-left:-6%;transform:rotate(-2.2deg);position:relative;z-index:2;box-shadow:0 14px 30px -14px rgba(15,23,42,.5)}
+.ribbons .marquee.back{position:absolute;left:0;top:50%;margin-top:-26px;transform:rotate(2.2deg);z-index:1;background:var(--primary);box-shadow:none}
+.ribbons .marquee.back span{color:#DBE6FE}.ribbons .marquee.back span::after{background:#fff}
+.ribbons .marquee.back .marquee-track{animation-direction:reverse}
+/* 3D reveal origins */
+.steps .step{transform-origin:0 50%}
+/* Trust globe */
+.trust{overflow:hidden}
+.trust .container{position:relative;z-index:1}
+.globe{position:absolute;right:-140px;top:50%;width:640px;height:640px;margin-top:-320px;opacity:.6;pointer-events:none}
+@media (max-width:900px){.globe{width:420px;height:420px;right:-150px;top:-60px;margin-top:0;opacity:.35}}
+/* Contact cubes */
+.contact-box > .shapes{position:absolute;inset:0}
+.contact .c1{--s:70px;right:6%;top:22px}
+.contact .c2{--s:40px;left:44%;bottom:28px}
+.contact .c3{--s:28px;left:6%;bottom:-8px}
+@media (max-width:1023px){.contact .c1{--s:48px;right:4%;top:12px}.contact .c2{display:none}}
 </style>
 </head>
 <body>
@@ -420,8 +477,9 @@ footer .copy{margin-top:32px;padding-top:24px;border-top:1px solid rgba(255,255,
   <!-- ===== HERO ===== -->
   <section class="hero" aria-labelledby="hero-title">
     <div class="hero-grid" aria-hidden="true"></div>
-    <div class="hero-glow a" aria-hidden="true"></div>
-    <div class="hero-glow b" aria-hidden="true"></div>
+    <div class="hero-floor" aria-hidden="true"><i></i></div>
+    <div class="hero-glow glow-a" aria-hidden="true"></div>
+    <div class="hero-glow glow-b" aria-hidden="true"></div>
     <div class="container hero-inner">
       <div class="hero-copy">
         <span class="badge"><span class="pill">NEW</span>신규 제작 · 리뉴얼 · 반응형 전문</span>
@@ -437,7 +495,9 @@ footer .copy{margin-top:32px;padding-top:24px;border-top:1px solid rgba(255,255,
           <li><svg class="icon"><use href="#i-check-circle"/></svg>호스팅 · SSL 포함</li>
         </ul>
       </div>
-      <div class="mock" aria-hidden="true">
+      <div class="mock-wrap" aria-hidden="true">
+        <div class="shapes"><div class="cube s1"><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="torus s3"></div></div>
+        <div class="mock">
         <div class="browser">
           <div class="browser-top"><i></i><i></i><i></i><span class="browser-url">www.your-brand.co.kr</span></div>
           <div class="browser-body">
@@ -454,13 +514,23 @@ footer .copy{margin-top:32px;padding-top:24px;border-top:1px solid rgba(255,255,
         <div class="phone"><div class="phone-screen"><div class="sk-hero"><span></span><span></span><em></em></div><div class="sk"></div><div class="sk" style="width:70%"></div><div class="sk" style="height:34px;border-radius:8px"></div><div class="sk" style="height:34px;border-radius:8px"></div></div></div>
         <div class="float-card"><span class="dot"><svg class="icon"><use href="#i-inbox"/></svg></span><span><strong>새 문의가 접수됐어요</strong><small>홈페이지 상담 폼</small></span></div>
       </div>
+        <div class="shapes front"><div class="cube orange s2"><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="orb s4"></div></div>
+      </div>
     </div>
   </section>
 
-  <div class="marquee" aria-hidden="true">
+  <div class="ribbons" aria-hidden="true">
+    <div class="marquee back">
     <div class="marquee-track">
       <span>PC · 모바일 반응형</span><span>구성 기획 · 카피라이팅</span><span>호스팅 · SSL 포함</span><span>도메인 연결 지원</span><span>기본 SEO 설정</span><span>카카오톡 1:1 소통</span><span>오픈 전 수정 반영</span><span>사용 안내서 제공</span>
       <span>PC · 모바일 반응형</span><span>구성 기획 · 카피라이팅</span><span>호스팅 · SSL 포함</span><span>도메인 연결 지원</span><span>기본 SEO 설정</span><span>카카오톡 1:1 소통</span><span>오픈 전 수정 반영</span><span>사용 안내서 제공</span>
+    </div>
+    </div>
+    <div class="marquee">
+    <div class="marquee-track">
+      <span>PC · 모바일 반응형</span><span>구성 기획 · 카피라이팅</span><span>호스팅 · SSL 포함</span><span>도메인 연결 지원</span><span>기본 SEO 설정</span><span>카카오톡 1:1 소통</span><span>오픈 전 수정 반영</span><span>사용 안내서 제공</span>
+      <span>PC · 모바일 반응형</span><span>구성 기획 · 카피라이팅</span><span>호스팅 · SSL 포함</span><span>도메인 연결 지원</span><span>기본 SEO 설정</span><span>카카오톡 1:1 소통</span><span>오픈 전 수정 반영</span><span>사용 안내서 제공</span>
+    </div>
     </div>
   </div>
 
@@ -472,31 +542,31 @@ footer .copy{margin-top:32px;padding-top:24px;border-top:1px solid rgba(255,255,
         <h2 id="why-title">홈페이지에 필요한 기본,<br>한 번에 담았습니다</h2>
         <p>기획부터 보안, 문의 접수까지. 따로 챙기지 않아도 되도록 패키지 하나로 준비합니다.</p>
       </div>
-      <div class="bento" data-stagger>
-        <article class="b b-tall">
+      <div class="bento" data-stagger3d="rise">
+        <article data-tilt class="b b-tall">
           <div class="b-vis" aria-hidden="true"><span class="b-type" id="b-type">가<span>.</span></span></div>
           <div class="b-copy"><h3>카피라이팅까지 포함</h3><p>원고가 없어도 괜찮아요. 업종과 고객에 맞는 문구를 직접 써 드립니다.</p></div>
         </article>
-        <article class="b b-std">
+        <article data-tilt class="b b-std">
           <div class="b-vis" aria-hidden="true"><div class="b-layout" id="b-layout"><i></i><i></i><i></i></div></div>
           <div class="b-copy"><h3>구성 기획</h3><p>보여줄 순서를 함께 설계합니다.</p></div>
         </article>
-        <article class="b b-tall">
+        <article data-tilt class="b b-tall">
           <div class="b-vis" aria-hidden="true">
             <div class="b-net"><span class="ring"></span><span class="ring"></span><span class="ring"></span><span class="core"><svg class="icon"><use href="#i-link"/></svg></span>
               <span class="chip k">카카오톡</span><span class="chip s">문자 · SNS</span><span class="chip m">QR · 명함</span></div>
           </div>
           <div class="b-copy"><h3><svg class="icon"><use href="#i-link"/></svg>링크 하나로 어디서든</h3><p>카카오톡, 문자, SNS, 명함 어디에서든 주소 하나로 브랜드를 소개하세요.</p></div>
         </article>
-        <article class="b b-std">
+        <article data-tilt class="b b-std">
           <div class="b-vis" aria-hidden="true"><div class="b-speed" id="b-speed"><div class="slot"><span class="ld"></span><span class="val">시안 도착</span></div><div class="bar"><i></i></div></div></div>
           <div class="b-copy"><h3>빠른 1차 시안</h3><p>자료만 주시면 빠르게 보여드립니다.</p></div>
         </article>
-        <article class="b b-wide">
+        <article data-tilt class="b b-wide">
           <div class="b-vis" aria-hidden="true"><div class="b-locks" id="b-locks"><span><svg class="icon"><use href="#i-lock"/></svg></span><span><svg class="icon"><use href="#i-lock"/></svg></span><span><svg class="icon"><use href="#i-lock"/></svg></span></div></div>
           <div class="b-copy"><h3><svg class="icon"><use href="#i-lock"/></svg>호스팅 · SSL 보안 포함</h3><p>안전한 https 주소로 오픈합니다. 서버 관리는 신경 쓰지 않으셔도 돼요.</p></div>
         </article>
-        <article class="b b-wide">
+        <article data-tilt class="b b-wide">
           <div class="b-vis" aria-hidden="true"><div class="b-inbox" id="b-inbox"><div><b></b>새 상담 신청 · 인테리어<em>방금</em></div><div><b></b>예약 문의 · 카페<em>3분 전</em></div><div><b></b>견적 요청 · 제조업<em>12분 전</em></div></div></div>
           <div class="b-copy"><h3><svg class="icon"><use href="#i-inbox"/></svg>문의는 자동으로 접수</h3><p>업무 시간이 아니어도 상담 신청이 차곡차곡 쌓이고 알림으로 바로 확인합니다.</p></div>
         </article>
@@ -511,7 +581,7 @@ footer .copy{margin-top:32px;padding-top:24px;border-top:1px solid rgba(255,255,
         <span class="eyebrow">Why O.Vue</span>
         <h2 id="cmp-title">복잡한 과정은 덜어내고<br>결과물에 집중합니다</h2>
       </div>
-      <div class="compare" data-stagger>
+      <div class="compare" data-stagger3d="swing">
         <div class="cmp">
           <h3>일반적인 제작 방식 <span class="chip-mini">Before</span></h3>
           <ul>
@@ -522,7 +592,7 @@ footer .copy{margin-top:32px;padding-top:24px;border-top:1px solid rgba(255,255,
             <li><span>호스팅 · SSL</span><span>매달 별도 청구</span></li>
           </ul>
         </div>
-        <div class="cmp us">
+        <div class="cmp us" data-tilt="6">
           <h3>O.Vue WEB <span class="chip-mini">After</span></h3>
           <ul>
             <li><span>진행 방식</span><span>참고 자료만 전달</span></li>
@@ -544,28 +614,28 @@ footer .copy{margin-top:32px;padding-top:24px;border-top:1px solid rgba(255,255,
         <h2 id="works-title">우리 업종의 홈페이지,<br>먼저 보고 결정하세요</h2>
         <p>업종별 구성 예시를 둘러보세요. 실제 홈페이지는 업체에 맞춰 새로 디자인합니다.</p>
       </div>
-      <div class="works" data-stagger>
-        <article class="work">
+      <div class="works" data-stagger3d="rise">
+        <article class="work" data-tilt>
           <div class="thumb th1" role="img" aria-label="제조업 홈페이지 예시 썸네일"><div class="t-nav"><b>PRECISION</b><i></i></div><div><div class="t-title">Built for<br>Precision</div><div class="t-btn"></div></div></div>
           <div class="work-body"><span class="cat">제조업</span><h3>제품 · 설비를 한눈에 보여주는 기업 사이트</h3><p>바이어가 궁금한 생산 역량과 납품 분야를 먼저 보여줍니다.</p><div class="work-tags"><span>제품 소개</span><span>설비 현황</span><span>견적 문의</span></div></div>
         </article>
-        <article class="work">
+        <article class="work" data-tilt>
           <div class="thumb th2" role="img" aria-label="인테리어 홈페이지 예시 썸네일"><div class="t-nav"><b>STUDIO</b><i></i></div><div><div class="t-title">Space that<br>Feels Like You</div><div class="t-btn"></div></div></div>
           <div class="work-body"><span class="cat">인테리어</span><h3>시공 사례 중심의 포트폴리오 사이트</h3><p>공간별 사례를 보여주고 견적 상담으로 자연스럽게 연결합니다.</p><div class="work-tags"><span>시공 사례</span><span>갤러리</span><span>상담 예약</span></div></div>
         </article>
-        <article class="work">
+        <article class="work" data-tilt>
           <div class="thumb th3" role="img" aria-label="펜션·풀빌라 홈페이지 예시 썸네일"><div class="t-nav"><b>POOL VILLA</b><i></i></div><div><div class="t-title">Stay Slow,<br>Swim Long</div><div class="t-btn"></div></div></div>
           <div class="work-body"><span class="cat">펜션 · 풀빌라 숙박업</span><h3>객실과 예약을 한눈에 보여주는 숙소 사이트</h3><p>객실별 사진과 요금, 부대시설을 보여주고 예약 문의로 바로 연결합니다.</p><div class="work-tags"><span>객실 안내</span><span>요금 · 예약</span><span>주변 관광</span></div></div>
         </article>
-        <article class="work">
+        <article class="work" data-tilt>
           <div class="thumb th4" role="img" aria-label="카페·음식점 홈페이지 예시 썸네일"><div class="t-nav"><b>CAFE</b><i></i></div><div><div class="t-title">Slow Coffee,<br>Warm Days</div><div class="t-btn"></div></div></div>
           <div class="work-body"><span class="cat">카페 · 음식점</span><h3>메뉴와 위치를 바로 찾는 매장 사이트</h3><p>반복되는 위치 · 메뉴 문의를 홈페이지 하나로 해결합니다.</p><div class="work-tags"><span>메뉴</span><span>지도</span><span>SNS 연동</span></div></div>
         </article>
-        <article class="work">
+        <article class="work" data-tilt>
           <div class="thumb th5" role="img" aria-label="학원 홈페이지 예시 썸네일"><div class="t-nav"><b>ACADEMY</b><i></i></div><div><div class="t-title">Next Step<br>Starts Here</div><div class="t-btn"></div></div></div>
           <div class="work-body"><span class="cat">학원 · 교육</span><h3>교육 과정과 상담 신청을 안내하는 사이트</h3><p>학부모가 궁금한 커리큘럼과 수업 방식을 명확하게 전달합니다.</p><div class="work-tags"><span>교육 과정</span><span>강사 소개</span><span>상담 신청</span></div></div>
         </article>
-        <article class="work">
+        <article class="work" data-tilt>
           <div class="thumb th6" role="img" aria-label="전문사무소 홈페이지 예시 썸네일"><div class="t-nav"><b>PARTNERS</b><i></i></div><div><div class="t-title">Trusted<br>Advisors</div><div class="t-btn"></div></div></div>
           <div class="work-body"><span class="cat">전문사무소</span><h3>신뢰를 주는 세무 · 법률 사무소 사이트</h3><p>전문가 소개, 업무 분야, 상담 절차를 차분하게 정돈합니다.</p><div class="work-tags"><span>전문가 소개</span><span>업무 분야</span><span>상담 절차</span></div></div>
         </article>
@@ -583,7 +653,7 @@ footer .copy{margin-top:32px;padding-top:24px;border-top:1px solid rgba(255,255,
         <p>홈페이지에 필요한 기본은 모두 담았습니다. 더 필요한 기능만 골라서 더하세요.</p>
       </div>
       <div class="pricing">
-        <article class="plan featured" data-reveal>
+        <article class="plan featured" data-reveal3d data-tilt="5">
           <span class="ribbon">가장 많이 선택해요</span>
           <h3>신규 홈페이지 제작</h3>
           <p class="desc">처음 홈페이지를 만드는 분께 필요한 모든 것을 담았습니다.</p>
@@ -601,7 +671,7 @@ footer .copy{margin-top:32px;padding-top:24px;border-top:1px solid rgba(255,255,
           <a href="#contact" class="btn btn-primary btn-lg btn-block">내 홈페이지 견적 받기</a>
         </article>
         <div class="plan-side">
-          <article class="plan sub" data-reveal>
+          <article class="plan sub" data-reveal3d data-tilt="5">
             <h3>기존 홈페이지 리뉴얼</h3>
             <p class="desc">쓰던 주소는 그대로, 디자인과 구성만 새롭게. 오래된 사이트 · 모바일 미대응 사이트에 추천합니다.</p>
             <!-- TODO: 실제 가격으로 교체 -->
@@ -609,7 +679,7 @@ footer .copy{margin-top:32px;padding-top:24px;border-top:1px solid rgba(255,255,
             <p class="price-note">부가세 포함</p>
             <a href="#contact" class="btn btn-ghost btn-block" style="margin-top:22px">리뉴얼 상담하기</a>
           </article>
-          <aside class="addons" data-reveal>
+          <aside class="addons" data-reveal3d data-tilt="5">
             <h3>필요할 때만 더하는 옵션</h3>
             <p>예약 · 결제처럼 별도 시스템이 필요한 경우에만 추가됩니다.</p>
             <!-- TODO: 옵션 가격 입력 -->
@@ -634,7 +704,7 @@ footer .copy{margin-top:32px;padding-top:24px;border-top:1px solid rgba(255,255,
         <h2 id="inc-title">원하는 섹션을 자유롭게 조합하세요</h2>
         <p>아래 구성은 패키지 안에서 업종과 목적에 맞게 골라 담을 수 있습니다.</p>
       </div>
-      <div class="chips" data-stagger>
+      <div class="chips" data-stagger3d="flipX">
         <span>회사 · 브랜드 소개</span><span>서비스 소개</span><span>상품 소개</span><span>포트폴리오</span><span>갤러리</span><span>동영상</span><span>고객 후기</span><span>가격 안내</span><span>비교표</span><span>FAQ</span><span>공지사항</span><span>연혁</span><span>팀 소개</span><span>이벤트 · 팝업</span><span>오시는 길 · 지도</span><span>영업시간</span><span>SNS 연동</span><span>상담 · 문의 폼</span>
       </div>
     </div>
@@ -648,7 +718,7 @@ footer .copy{margin-top:32px;padding-top:24px;border-top:1px solid rgba(255,255,
         <h2 id="proc-title">4단계면 오픈까지 끝</h2>
         <p>고객님이 하실 일은 가지고 계신 자료를 보내주시는 것 하나입니다.</p>
       </div>
-      <ol class="steps" data-stagger>
+      <ol class="steps" data-stagger3d="flipY">
         <li class="step"><div class="num en">01</div><h3>무료 상담</h3><p>상담을 신청하시면 담당자가 연락드려 필요한 구성과 견적을 함께 정합니다.</p><span class="meta">비용 없음</span></li>
         <li class="step"><div class="num en">02</div><h3>자료 전달</h3><p>로고, 사진, 소개 문구 등 있는 자료만 보내주세요. 없으면 함께 준비합니다.</p><span class="meta">카카오톡으로 간편하게</span></li>
         <li class="step hot"><div class="num en">03</div><h3>1차 시안 확인</h3><p>자료를 바탕으로 기획 · 문구 · 디자인을 담은 1차 시안을 보여드립니다.</p><span class="meta">빠른 시안 전달</span></li>
@@ -659,16 +729,17 @@ footer .copy{margin-top:32px;padding-top:24px;border-top:1px solid rgba(255,255,
 
   <!-- ===== TRUST ===== -->
   <section class="section trust" aria-labelledby="trust-title">
+    <canvas class="globe" aria-hidden="true"></canvas>
     <div class="container">
       <div class="section-head" data-reveal>
         <span class="eyebrow">After Open</span>
         <h2 id="trust-title">만드는 것보다<br>오픈한 뒤가 더 중요합니다</h2>
         <p>문제가 생겼을 때 연락할 곳이 있는지, 시작 전에 꼭 확인하세요.</p>
       </div>
-      <div class="grid-3" data-stagger>
-        <article class="card"><div class="ic"><svg class="icon"><use href="#i-life"/></svg></div><h3>오픈 후에도 상담 채널 유지</h3><p>운영 중 궁금한 점이나 수정이 필요할 때 같은 채널로 바로 연락하실 수 있습니다.</p></article>
-        <article class="card"><div class="ic"><svg class="icon"><use href="#i-book"/></svg></div><h3>사용 안내서 제공</h3><p>수정 요청 방법, 도메인 · 호스팅 관리 방법을 문서로 정리해 전달해 드립니다.</p></article>
-        <article class="card"><div class="ic"><svg class="icon"><use href="#i-key"/></svg></div><h3>결과물 소유권은 고객님께</h3><p>완성된 홈페이지의 소유권은 고객님께 있습니다. 계약서에 명확하게 기재합니다.</p></article>
+      <div class="grid-3" data-stagger3d="rise">
+        <article class="card" data-tilt><div class="ic"><svg class="icon"><use href="#i-life"/></svg></div><h3>오픈 후에도 상담 채널 유지</h3><p>운영 중 궁금한 점이나 수정이 필요할 때 같은 채널로 바로 연락하실 수 있습니다.</p></article>
+        <article class="card" data-tilt><div class="ic"><svg class="icon"><use href="#i-book"/></svg></div><h3>사용 안내서 제공</h3><p>수정 요청 방법, 도메인 · 호스팅 관리 방법을 문서로 정리해 전달해 드립니다.</p></article>
+        <article class="card" data-tilt><div class="ic"><svg class="icon"><use href="#i-key"/></svg></div><h3>결과물 소유권은 고객님께</h3><p>완성된 홈페이지의 소유권은 고객님께 있습니다. 계약서에 명확하게 기재합니다.</p></article>
       </div>
     </div>
   </section>
@@ -680,7 +751,7 @@ footer .copy{margin-top:32px;padding-top:24px;border-top:1px solid rgba(255,255,
         <span class="eyebrow">FAQ</span>
         <h2 id="faq-title">자주 묻는 질문</h2>
       </div>
-      <div class="faq" data-stagger>
+      <div class="faq" data-stagger3d="flipX">
         <details><summary>준비된 자료가 하나도 없어도 진행할 수 있나요?<svg class="icon"><use href="#i-plus"/></svg></summary><p class="a">네. 로고, 사진, 소개글 중 가지고 계신 것만 보내주시면 됩니다. 문구가 없으면 업종에 맞춰 기본 카피를 작성하고, 사진이 없으면 구성에 맞는 이미지를 함께 제안해 드립니다.</p></details>
         <details><summary>제작 기간은 얼마나 걸리나요?<svg class="icon"><use href="#i-plus"/></svg></summary><p class="a">필수 자료를 받은 뒤 빠르게 1차 시안을 전달드립니다. 최종 오픈일은 자료 전달 속도, 수정 횟수, 도메인 연결 일정에 따라 달라질 수 있어 상담 시 정확히 안내드립니다.</p></details>
         <details><summary>수정은 몇 번까지 가능한가요?<svg class="icon"><use href="#i-plus"/></svg></summary><p class="a">오픈 전까지 텍스트, 색상, 이미지 등 수정 사항을 반영해 드립니다. 구조를 크게 바꾸는 요청은 상담 후 범위를 함께 정합니다.</p></details>
@@ -693,7 +764,8 @@ footer .copy{margin-top:32px;padding-top:24px;border-top:1px solid rgba(255,255,
   <!-- ===== CONTACT ===== -->
   <section class="contact" id="contact" aria-labelledby="contact-title">
     <div class="container">
-      <div class="contact-box" data-reveal>
+      <div class="contact-box" data-reveal3d>
+        <div class="shapes" aria-hidden="true"><div class="cube glass c1"><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="cube orange c2"><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="cube glass c3"><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
         <div>
           <h2 id="contact-title">30초면 충분해요.<br>무료 상담을 신청하세요</h2>
           <p class="lead">남겨주신 연락처로 담당자가 직접 연락드립니다. 상담은 비용 없이 진행됩니다.</p>
@@ -787,9 +859,8 @@ footer .copy{margin-top:32px;padding-top:24px;border-top:1px solid rgba(255,255,
     const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (!reduce) {
       animate('.hero-copy > *', { opacity: [0, 1], y: [24, 0] }, { duration: 0.6, delay: stagger(0.08), ease: 'easeOut' });
-      animate('.mock', { opacity: [0, 1], y: [32, 0], scale: [0.97, 1] }, { duration: 0.8, delay: 0.25, ease: 'easeOut' });
-      animate('.float-card', { opacity: [0, 1], x: [-16, 0] }, { duration: 0.5, delay: 0.9 });
-      inView('[data-reveal]', el => { animate(el, { opacity: [0, 1], y: [28, 0] }, { duration: 0.6, ease: 'easeOut' }); }, { amount: 0.25 });
+      animate('.float-card', { opacity: [0, 1], x: [-16, 0], z: [110, 110] }, { duration: 0.5, delay: 1.1 });
+      inView('[data-reveal]', el => { animate(el, { opacity: [0, 1], y: [28, 0], rotateX: [24, 0], transformPerspective: 900 }, { duration: 0.7, ease: [0.16, 1, 0.3, 1] }); }, { amount: 0.25 });
       inView('[data-stagger]', el => { animate(el.children, { opacity: [0, 1], y: [20, 0] }, { duration: 0.5, delay: stagger(0.07), ease: 'easeOut' }); }, { amount: 0.15 });
       scroll(animate('.progress', { scaleX: [0, 1] }, { ease: 'linear' }));
       // Bento tile loops (adapted from 21st.dev "bento grid 01"; run only while visible)
@@ -815,8 +886,74 @@ footer .copy{margin-top:32px;padding-top:24px;border-top:1px solid rgba(255,255,
         if (li === 3) { s.forEach(x => x.classList.remove('on')); return; }
         s[li].classList.add('on'); animate(s[li], { scale: [1, 1.12, 1] }, { duration: 0.35 }); }, 800);
       loop('#b-inbox', el => { el.prepend(el.lastElementChild); animate(el.firstElementChild, { opacity: [0, 1], y: [-14, 0] }, { duration: 0.45, ease: 'easeOut' }); }, 2600);
+
+      // ===== 3D motion layer =====
+      const ease3 = [0.16, 1, 0.3, 1];
+      // 3D staggered reveals
+      const from3 = { flipY: () => ({ rotateY: [-75, 0], z: [-60, 0] }), flipX: () => ({ rotateX: [-80, 0], y: [20, 0] }),
+                      rise: () => ({ rotateX: [38, 0], y: [70, 0], z: [-80, 0] }), swing: i => ({ rotateY: [i % 2 ? 40 : -40, 0], z: [-120, 0] }) };
+      inView('[data-stagger3d]', el => { const f = from3[el.dataset.stagger3d] || from3.rise;
+        [...el.children].forEach((c, i) => animate(c, { opacity: [0, 1], transformPerspective: 1000, ...f(i) }, { duration: 0.9, delay: i * (el.children.length > 8 ? 0.03 : 0.09), ease: ease3 })); }, { amount: 0.15 });
+      inView('[data-reveal3d]', el => { animate(el, { opacity: [0, 1], rotateX: [30, 0], y: [60, 0], transformPerspective: 1000 }, { duration: 0.9, ease: ease3 }); }, { amount: 0.2 });
+      // Pointer tilt + glare (mouse / trackpad only)
+      const fine = matchMedia('(hover: hover) and (pointer: fine)').matches;
+      if (fine) document.querySelectorAll('[data-tilt]').forEach(el => {
+        const max = +el.dataset.tilt || 7, g = document.createElement('span'); g.className = 'glare'; g.setAttribute('aria-hidden', 'true'); el.appendChild(g);
+        el.addEventListener('pointermove', e => { const r = el.getBoundingClientRect(), px = (e.clientX - r.left) / r.width, py = (e.clientY - r.top) / r.height;
+          el.style.setProperty('--gx', px * 100 + '%'); el.style.setProperty('--gy', py * 100 + '%');
+          animate(el, { rotateY: (px - 0.5) * max * 2, rotateX: (0.5 - py) * max * 2, transformPerspective: 1000 }, { duration: 0.4, ease: 'easeOut' }); });
+        el.addEventListener('pointerleave', () => animate(el, { rotateX: 0, rotateY: 0 }, { duration: 0.7, ease: ease3 }));
+      });
+      // Hero stage: entrance + pointer parallax
+      const mock = document.querySelector('.mock'), narrow = innerWidth < 640, bY = narrow ? -8 : -12, bX = narrow ? 4 : 6;
+      animate(mock, { rotateY: [-38, bY], rotateX: [22, bX], opacity: [0, 1] }, { duration: 1.3, delay: 0.2, ease: ease3 });
+      animate('.mock .phone', { z: [0, 70] }, { duration: 1.2, delay: 0.5, ease: ease3 });
+      if (fine) document.querySelector('.hero').addEventListener('pointermove', e => {
+        const px = e.clientX / innerWidth - 0.5, py = e.clientY / innerHeight - 0.5;
+        animate(mock, { rotateY: bY + px * 14, rotateX: bX - py * 10 }, { duration: 0.6, ease: 'easeOut' });
+        document.querySelectorAll('.hero .shapes > *').forEach((s, i) => animate(s, { x: px * (18 + i * 10), y: py * (14 + i * 8) }, { duration: 0.8, ease: 'easeOut' }));
+      });
+      // Perspective floor
+      inView('.hero-floor', el => { const a = animate(el.firstElementChild, { y: [0, 60] }, { duration: 2.4, repeat: Infinity, ease: 'linear' }); return () => a.stop(); });
+      // Spinning 3D shapes (only while on screen)
+      document.querySelectorAll('.cube, .torus').forEach((s, i) => {
+        inView(s, () => { const isT = s.classList.contains('torus');
+          const a = animate(s, isT ? { rotateZ: [0, 360], rotateX: 68, rotateY: [12, -12, 12] } : { rotateX: [-24, 336], rotateY: [38, 398] },
+            isT ? { rotateZ: { duration: 14, repeat: Infinity, ease: 'linear' }, rotateY: { duration: 6, repeat: Infinity, ease: 'easeInOut' } }
+                : { duration: 16 + i * 5, repeat: Infinity, ease: 'linear' });
+          return () => a.stop(); });
+      });
+      inView('.orb', el => { const a = animate(el, { y: [0, -16, 0] }, { duration: 4, repeat: Infinity, ease: 'easeInOut' }); return () => a.stop(); });
     }
   }
+</script>
+<script>
+  // Trust section: rotating dotted globe (canvas 2D, pauses off-screen)
+  (function () {
+    const c = document.querySelector('.globe'); if (!c || !c.getContext) return;
+    const ctx = c.getContext('2d'), reduce = matchMedia('(prefers-reduced-motion: reduce)').matches, pts = [], N = 640;
+    for (let i = 0; i < N; i++) { const y = 1 - (i / (N - 1)) * 2, r = Math.sqrt(1 - y * y), t = i * 2.399963; pts.push([Math.cos(t) * r, y, Math.sin(t) * r]); }
+    let a = 0.6, raf = 0, vis = false;
+    const size = () => { const d = Math.min(devicePixelRatio || 1, 2), w = c.clientWidth || 1; c.width = w * d; c.height = w * d; ctx.setTransform(d, 0, 0, d, 0, 0); };
+    const draw = () => {
+      const w = c.clientWidth, R = w * 0.36, cx = w / 2, cy = w / 2, ca = Math.cos(a), sa = Math.sin(a), ct = Math.cos(0.38), st = Math.sin(0.38);
+      ctx.clearRect(0, 0, w, w);
+      for (const [x, y, z] of pts) {
+        const X = x * ca + z * sa, Z0 = -x * sa + z * ca, Y = y * ct - Z0 * st, Z = y * st + Z0 * ct, d = (Z + 1) / 2;
+        ctx.globalAlpha = 0.12 + d * 0.88; ctx.fillStyle = d > 0.55 ? '#BFDBFE' : '#3B82F6';
+        ctx.beginPath(); ctx.arc(cx + X * R, cy + Y * R, 0.5 + d * 1.7, 0, 6.2832); ctx.fill();
+      }
+      const rot = -0.32, rx = R * 1.3, ry = R * 0.3, ang = a * 2.4;
+      ctx.globalAlpha = 0.5; ctx.strokeStyle = '#60A5FA'; ctx.lineWidth = 1;
+      ctx.beginPath(); ctx.ellipse(cx, cy, rx, ry, rot, 0, 6.2832); ctx.stroke();
+      const ex = Math.cos(ang) * rx, ey = Math.sin(ang) * ry, sx = cx + ex * Math.cos(rot) - ey * Math.sin(rot), sy = cy + ex * Math.sin(rot) + ey * Math.cos(rot);
+      ctx.globalAlpha = 1; ctx.fillStyle = '#F97316'; ctx.beginPath(); ctx.arc(sx, sy, 5, 0, 6.2832); ctx.fill();
+      ctx.globalAlpha = 0.25; ctx.beginPath(); ctx.arc(sx, sy, 11, 0, 6.2832); ctx.fill();
+    };
+    const tick = () => { a += 0.0032; draw(); if (vis) raf = requestAnimationFrame(tick); };
+    size(); draw(); addEventListener('resize', () => { size(); draw(); });
+    if (!reduce && 'IntersectionObserver' in window) new IntersectionObserver(es => { vis = es[0].isIntersecting; cancelAnimationFrame(raf); if (vis) tick(); }).observe(c);
+  })();
 </script>
 </body>
 </html>

@@ -15,3 +15,6 @@
 
 ## 사용한 외부 컴포넌트
 - 강점(Why) 벤토 그리드: 21st.dev [bento grid 01](https://21st.dev/@avanishverma4/components/bento-grid-01) — React/framer-motion 원본을 정적 HTML + Motion(vanilla)으로 변환, O.Vue 디자인 토큰으로 재스타일
+
+## 폰트
+- 사이트 전체 폰트: **G마켓 산스** (Light 300 / Medium 500 / Bold 700, 눈누 웹폰트 CDN에서 로드)

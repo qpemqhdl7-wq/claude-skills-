@@ -39,14 +39,16 @@
 
 ### Typography
 
-- **Heading Font:** Outfit
-- **Body Font:** Work Sans
-- **Mood:** geometric, modern, clean, balanced, contemporary, versatile
-- **Google Fonts:** [Outfit + Work Sans](https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Work+Sans:wght@300;400;500;600;700&display=swap)
+- **Brand Font (heading + body):** G마켓 산스 (Gmarket Sans) — client-specified, overrides the generated Outfit / Work Sans pairing
+- **Weights:** Light 300 · Medium 500 (body) · Bold 700 (headings, buttons)
+- **Source:** projectnoonnu webfont CDN (free for commercial use)
 
-**CSS Import:**
+**CSS:**
 ```css
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Work+Sans:wght@300;400;500;600;700&display=swap');
+@font-face { font-family: 'GmarketSans'; font-weight: 300; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('woff'); font-display: swap; }
+@font-face { font-family: 'GmarketSans'; font-weight: 500; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff'); font-display: swap; }
+@font-face { font-family: 'GmarketSans'; font-weight: 700; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') format('woff'); font-display: swap; }
+--font-ko: "GmarketSans", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
 ```
 
 ### Spacing Variables
