@@ -161,6 +161,50 @@ section{position:relative}
 .tag{display:inline-flex;align-items:center;gap:6px;margin-top:18px;font-size:13.5px;font-weight:700;color:var(--success)}
 .tag .icon{width:16px;height:16px}
 
+/* Bento (adapted from 21st.dev "bento grid 01" by avanishverma4) */
+.bento{display:grid;gap:16px;grid-template-columns:1fr;grid-auto-rows:minmax(220px,auto)}
+@media (min-width:768px){.bento{grid-template-columns:repeat(6,1fr);grid-auto-rows:220px}
+  .b-tall{grid-column:span 2;grid-row:span 2}.b-std{grid-column:span 2}.b-wide{grid-column:span 3}}
+.b{position:relative;overflow:hidden;background:var(--dark);border:1px solid #1E293B;border-radius:var(--radius-lg);padding:26px;display:flex;flex-direction:column;color:var(--dark-fg);transition:border-color .2s,box-shadow .2s}
+.b:hover{border-color:#334155;box-shadow:0 24px 48px -16px rgba(2,6,23,.45)}
+.b-vis{flex:1;display:flex;align-items:center;justify-content:center;min-height:110px;position:relative}
+.b h3{color:#fff;font-size:19px;font-weight:700;display:flex;align-items:center;gap:8px}
+.b h3 .icon{width:18px;height:18px;color:#93C5FD}
+.b p{color:var(--dark-muted);font-size:14.5px;margin-top:6px}
+.b-copy{margin-top:16px;position:relative;z-index:2}
+.b-tall .b-copy{background:rgba(11,18,32,.6);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border-radius:10px}
+.b-type{font-size:clamp(84px,14vw,120px);font-weight:800;color:#fff;line-height:1;letter-spacing:-.04em;display:inline-block}
+.b-type span{color:#60A5FA}
+.b-layout{display:grid;gap:6px;width:100%;max-width:150px;grid-template-columns:1fr 1fr}
+.b-layout.c3{grid-template-columns:repeat(3,1fr)}.b-layout.c1{grid-template-columns:1fr}
+.b-layout i{display:block;height:20px;border-radius:6px;background:rgba(255,255,255,.2)}
+.b-layout i:first-child{background:#3B82F6}
+.b-net{position:relative;width:72px;height:72px;display:grid;place-items:center}
+.b-net .core{width:72px;height:72px;border-radius:50%;background:var(--primary);color:#fff;display:grid;place-items:center;position:relative;z-index:2;box-shadow:0 0 0 8px rgba(37,99,235,.18)}
+.b-net .core .icon{width:30px;height:30px}
+.b-net .ring{position:absolute;inset:0;border:2px solid rgba(147,197,253,.45);border-radius:50%;opacity:0}
+.b-net .chip{position:absolute;z-index:3;font-size:12px;font-weight:700;padding:5px 10px;border-radius:999px;background:#fff;color:var(--ink);white-space:nowrap;box-shadow:var(--shadow-md)}
+.b-net .chip.k{background:#FEE500;color:#191919;top:-58px;left:-70px}
+.b-net .chip.s{top:-34px;right:-92px}
+.b-net .chip.m{bottom:-46px;left:-64px;background:#1E293B;color:#E2E8F0}
+.b-speed{display:flex;flex-direction:column;align-items:center;gap:10px;width:100%}
+.b-speed .slot{height:42px;width:100%;display:grid;place-items:center;position:relative}
+.b-speed .ld{opacity:0;position:absolute;width:110px;height:30px;border-radius:8px;background:rgba(255,255,255,.12)}
+.b-speed .val{font-size:30px;font-weight:800;color:#fff;letter-spacing:-.02em}
+.b-speed small{color:var(--dark-muted);font-size:13px}
+.b-speed .bar{width:100%;max-width:150px;height:6px;border-radius:999px;background:rgba(255,255,255,.1);overflow:hidden}
+.b-speed .bar i{display:block;height:100%;background:linear-gradient(90deg,#60A5FA,#fff);border-radius:999px;transform-origin:0 50%}
+.b-locks{display:flex;gap:10px}
+.b-locks span{width:52px;height:52px;border-radius:12px;display:grid;place-items:center;background:rgba(255,255,255,.05);color:#475569;transition:background-color .3s,color .3s}
+.b-locks span.on{background:rgba(37,99,235,.35);color:#fff}
+.b-locks .icon{width:22px;height:22px}
+.b-inbox{display:grid;gap:8px;width:100%;max-width:280px}
+.b-inbox div:nth-child(n+3){display:none}
+.b-tall .b-vis{min-height:210px}
+.b-inbox div{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:12px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.08);font-size:13.5px;color:#E2E8F0}
+.b-inbox div b{width:8px;height:8px;border-radius:50%;background:var(--accent);flex:none}
+.b-inbox div em{margin-left:auto;font-style:normal;color:var(--dark-muted);font-size:12px}
+
 /* Compare */
 .compare{display:grid;gap:16px;max-width:980px;margin:0 auto}
 @media (min-width:768px){.compare{grid-template-columns:1fr 1fr}}
@@ -342,6 +386,7 @@ footer .copy{margin-top:32px;padding-top:24px;border-top:1px solid rgba(255,255,
   <symbol id="i-life" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><path d="m4.93 4.93 4.24 4.24M14.83 14.83l4.24 4.24M14.83 9.17l4.24-4.24M14.83 9.17l3.53-3.53M4.93 19.07l4.24-4.24"/></symbol>
   <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></symbol>
   <symbol id="i-key" viewBox="0 0 24 24"><circle cx="7.5" cy="15.5" r="5.5"/><path d="m21 2-9.6 9.6M15.5 7.5l3 3L22 7l-3-3"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
   <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></symbol>
   <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
   <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></symbol>
@@ -419,32 +464,41 @@ footer .copy{margin-top:32px;padding-top:24px;border-top:1px solid rgba(255,255,
     </div>
   </div>
 
-  <!-- ===== WHY ===== -->
+  <!-- ===== WHY (bento — adapted from 21st.dev "bento grid 01") ===== -->
   <section class="section" id="why" aria-labelledby="why-title">
     <div class="container">
       <div class="section-head" data-reveal>
-        <span class="eyebrow">Why Homepage</span>
-        <h2 id="why-title">홈페이지 하나로<br>비즈니스의 첫인상이 달라집니다</h2>
-        <p>SNS와 블로그만으로는 부족했던 이유, 지금 바로 확인해 보세요.</p>
+        <span class="eyebrow">Why O.Vue WEB</span>
+        <h2 id="why-title">홈페이지에 필요한 기본,<br>한 번에 담았습니다</h2>
+        <p>기획부터 보안, 문의 접수까지. 따로 챙기지 않아도 되도록 패키지 하나로 준비합니다.</p>
       </div>
-      <div class="grid-3" data-stagger>
-        <article class="card">
-          <div class="ic"><svg class="icon"><use href="#i-link"/></svg></div>
-          <h3>링크 하나로 브랜드 소개 끝</h3>
-          <p>카카오톡, 문자, SNS 어디에서든 주소 하나만 보내면 됩니다. 길게 설명하지 않아도 서비스와 강점이 한눈에 전달됩니다.</p>
-          <span class="tag"><svg class="icon"><use href="#i-check"/></svg>브랜드 신뢰도 상승</span>
+      <div class="bento" data-stagger>
+        <article class="b b-tall">
+          <div class="b-vis" aria-hidden="true"><span class="b-type" id="b-type">가<span>.</span></span></div>
+          <div class="b-copy"><h3>카피라이팅까지 포함</h3><p>원고가 없어도 괜찮아요. 업종과 고객에 맞는 문구를 직접 써 드립니다.</p></div>
         </article>
-        <article class="card">
-          <div class="ic"><svg class="icon"><use href="#i-inbox"/></svg></div>
-          <h3>문의 · 예약은 자동으로 접수</h3>
-          <p>상담 폼을 연결하면 업무 시간이 아니어도 문의가 차곡차곡 쌓이고, 알림으로 바로 확인할 수 있습니다.</p>
-          <span class="tag"><svg class="icon"><use href="#i-check"/></svg>업무 자동화</span>
+        <article class="b b-std">
+          <div class="b-vis" aria-hidden="true"><div class="b-layout" id="b-layout"><i></i><i></i><i></i></div></div>
+          <div class="b-copy"><h3>구성 기획</h3><p>보여줄 순서를 함께 설계합니다.</p></div>
         </article>
-        <article class="card">
-          <div class="ic"><svg class="icon"><use href="#i-palette"/></svg></div>
-          <h3>플랫폼이 아닌 나만의 공간</h3>
-          <p>정해진 틀에 맞출 필요 없이 색상, 구성, 문구까지 우리 브랜드에 꼭 맞게 설계한 공간에서 고객을 맞이하세요.</p>
-          <span class="tag"><svg class="icon"><use href="#i-check"/></svg>브랜드 자유도 100%</span>
+        <article class="b b-tall">
+          <div class="b-vis" aria-hidden="true">
+            <div class="b-net"><span class="ring"></span><span class="ring"></span><span class="ring"></span><span class="core"><svg class="icon"><use href="#i-link"/></svg></span>
+              <span class="chip k">카카오톡</span><span class="chip s">문자 · SNS</span><span class="chip m">QR · 명함</span></div>
+          </div>
+          <div class="b-copy"><h3><svg class="icon"><use href="#i-link"/></svg>링크 하나로 어디서든</h3><p>카카오톡, 문자, SNS, 명함 어디에서든 주소 하나로 브랜드를 소개하세요.</p></div>
+        </article>
+        <article class="b b-std">
+          <div class="b-vis" aria-hidden="true"><div class="b-speed" id="b-speed"><div class="slot"><span class="ld"></span><span class="val">시안 도착</span></div><div class="bar"><i></i></div></div></div>
+          <div class="b-copy"><h3>빠른 1차 시안</h3><p>자료만 주시면 빠르게 보여드립니다.</p></div>
+        </article>
+        <article class="b b-wide">
+          <div class="b-vis" aria-hidden="true"><div class="b-locks" id="b-locks"><span><svg class="icon"><use href="#i-lock"/></svg></span><span><svg class="icon"><use href="#i-lock"/></svg></span><span><svg class="icon"><use href="#i-lock"/></svg></span></div></div>
+          <div class="b-copy"><h3><svg class="icon"><use href="#i-lock"/></svg>호스팅 · SSL 보안 포함</h3><p>안전한 https 주소로 오픈합니다. 서버 관리는 신경 쓰지 않으셔도 돼요.</p></div>
+        </article>
+        <article class="b b-wide">
+          <div class="b-vis" aria-hidden="true"><div class="b-inbox" id="b-inbox"><div><b></b>새 상담 신청 · 인테리어<em>방금</em></div><div><b></b>예약 문의 · 카페<em>3분 전</em></div><div><b></b>견적 요청 · 제조업<em>12분 전</em></div></div></div>
+          <div class="b-copy"><h3><svg class="icon"><use href="#i-inbox"/></svg>문의는 자동으로 접수</h3><p>업무 시간이 아니어도 상담 신청이 차곡차곡 쌓이고 알림으로 바로 확인합니다.</p></div>
         </article>
       </div>
     </div>
@@ -738,6 +792,29 @@ footer .copy{margin-top:32px;padding-top:24px;border-top:1px solid rgba(255,255,
       inView('[data-reveal]', el => { animate(el, { opacity: [0, 1], y: [28, 0] }, { duration: 0.6, ease: 'easeOut' }); }, { amount: 0.25 });
       inView('[data-stagger]', el => { animate(el.children, { opacity: [0, 1], y: [20, 0] }, { duration: 0.5, delay: stagger(0.07), ease: 'easeOut' }); }, { amount: 0.15 });
       scroll(animate('.progress', { scaleX: [0, 1] }, { ease: 'linear' }));
+      // Bento tile loops (adapted from 21st.dev "bento grid 01"; run only while visible)
+      const loop = (sel, fn, ms) => inView(sel, el => { fn(el); const t = setInterval(() => fn(el), ms); return () => clearInterval(t); }, { amount: 0.4 });
+      let big = false;
+      loop('#b-type', el => { big = !big; animate(el, { scale: big ? 1.35 : 1 }, { duration: 0.8, ease: [0.16, 1, 0.3, 1] }); }, 2000);
+      const cols = ['', 'c3', 'c1']; let ci = 0;
+      loop('#b-layout', el => { // FLIP: swap grid columns, then animate items from old position
+        const items = [...el.children], before = items.map(i => i.getBoundingClientRect());
+        ci = (ci + 1) % 3; el.className = 'b-layout ' + cols[ci];
+        items.forEach((it, k) => { const a = it.getBoundingClientRect(), b = before[k];
+          animate(it, { x: [b.left - a.left, 0], y: [b.top - a.top, 0], scaleX: [b.width / a.width, 1] }, { duration: 0.5, ease: [0.16, 1, 0.3, 1] }); });
+      }, 2500);
+      inView('.b-net', el => { const anims = [...el.querySelectorAll('.ring')].map((r, k) => animate(r, { scale: [0.6, 3], opacity: [0.9, 0] }, { duration: 3, delay: k, repeat: Infinity, ease: 'easeOut' }));
+        animate(el.querySelectorAll('.chip'), { opacity: [0, 1], y: [8, 0] }, { delay: stagger(0.15, { startDelay: 0.3 }), duration: 0.4 });
+        return () => anims.forEach(a => a.stop()); }, { amount: 0.4 });
+      loop('#b-speed', el => { const ld = el.querySelector('.ld'), v = el.querySelector('.val'), bar = el.querySelector('.bar i');
+        animate(ld, { opacity: [0.4, 0.8, 0.4] }, { duration: 0.9 }); animate(v, { opacity: 0, y: 12 }, { duration: 0.01 }); animate(bar, { scaleX: 0 }, { duration: 0.01 });
+        setTimeout(() => { animate(ld, { opacity: 0 }, { duration: 0.2 }); animate(v, { opacity: [0, 1], y: [16, 0] }, { duration: 0.5 }); animate(bar, { scaleX: [0, 1] }, { type: 'spring', stiffness: 100, damping: 15 }); }, 900);
+      }, 4000);
+      let li = -1;
+      loop('#b-locks', el => { const s = [...el.children]; li = (li + 1) % 4;
+        if (li === 3) { s.forEach(x => x.classList.remove('on')); return; }
+        s[li].classList.add('on'); animate(s[li], { scale: [1, 1.12, 1] }, { duration: 0.35 }); }, 800);
+      loop('#b-inbox', el => { el.prepend(el.lastElementChild); animate(el.firstElementChild, { opacity: [0, 1], y: [-14, 0] }, { duration: 0.45, ease: 'easeOut' }); }, 2600);
     }
   }
 </script>

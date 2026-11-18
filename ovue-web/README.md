@@ -12,3 +12,6 @@
 - 포트폴리오 썸네일 (현재 가상 브랜드 예시)
 - `og-image.png` (링크 공유 이미지, 1200×630)
 - 상담 폼 전송 처리 (현재 화면 메시지만 표시 — 구글 시트/폼 서비스 연결 필요)
+
+## 사용한 외부 컴포넌트
+- 강점(Why) 벤토 그리드: 21st.dev [bento grid 01](https://21st.dev/@avanishverma4/components/bento-grid-01) — React/framer-motion 원본을 정적 HTML + Motion(vanilla)으로 변환, O.Vue 디자인 토큰으로 재스타일
