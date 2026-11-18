@@ -18,3 +18,9 @@
 
 ## 폰트
 - 사이트 전체 폰트: **G마켓 산스** (Light 300 / Medium 500 / Bold 700, 눈누 웹폰트 CDN에서 로드)
+
+## 로고 (`assets/`)
+업체 로고 이미지를 벡터(SVG)로 변환해 웹용으로 정리했습니다.
+- `ovue-logo-gold.svg` / `ovue-logo-white.svg` — 전체 로고 (Website Creation 포함): 푸터 등 넓은 자리
+- `ovue-badge-gold.svg` / `ovue-badge-white.svg` — 태그라인 없는 로고: 헤더 등 작은 자리
+- `favicon.svg` — 브라우저 탭 아이콘 (네이비 바탕 + 금색 창틀 + O.)

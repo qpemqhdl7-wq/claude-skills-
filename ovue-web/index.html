@@ -11,7 +11,7 @@
 <meta property="og:image" content="og-image.png">
 <meta property="og:locale" content="ko_KR">
 <meta name="theme-color" content="#2563EB">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%232563EB'/%3E%3Ccircle cx='32' cy='32' r='15' fill='none' stroke='white' stroke-width='7'/%3E%3Ccircle cx='46' cy='18' r='5' fill='%23F97316'/%3E%3C/svg%3E">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <style>
 /* Brand font: G마켓 산스 (Gmarket Sans, 상업적 사용 무료) */
@@ -71,7 +71,8 @@ p{margin:0}
 .header.scrolled{border-bottom-color:var(--border)}
 .header .bar{display:flex;align-items:center;justify-content:space-between;height:68px;gap:16px}
 .logo{display:flex;align-items:center;gap:10px;font-family:var(--font-en);font-weight:800;font-size:21px;color:var(--ink);letter-spacing:-.02em}
-.logo-mark{width:32px;height:32px}
+.logo-img{height:50px;width:auto}
+.footer-logo img{width:150px;height:auto}
 .logo b{color:var(--primary);font-weight:800}
 .nav{display:none;gap:4px}
 .nav a{padding:10px 14px;border-radius:999px;font-size:15px;font-weight:600;color:var(--fg-muted);transition:color .2s,background-color .2s}
@@ -452,10 +453,7 @@ footer .copy{margin-top:32px;padding-top:24px;border-top:1px solid rgba(255,255,
 
 <header class="header" id="top">
   <div class="container bar">
-    <a href="#top" class="logo" aria-label="O.Vue WEB 홈">
-      <svg class="logo-mark" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#2563EB"/><circle cx="32" cy="32" r="15" fill="none" stroke="#fff" stroke-width="7"/><circle cx="46" cy="18" r="5" fill="#F97316"/></svg>
-      <span>O.Vue <b>WEB</b></span>
-    </a>
+    <a href="#top" class="logo" aria-label="O.Vue WEB 홈"><img src="assets/ovue-badge-gold.svg" alt="O.Vue WEB" width="64" height="47" class="logo-img"></a>
     <nav class="nav" aria-label="주요 메뉴">
       <a href="#why">강점</a>
       <a href="#works">포트폴리오</a>
@@ -798,7 +796,7 @@ footer .copy{margin-top:32px;padding-top:24px;border-top:1px solid rgba(255,255,
   <div class="container">
     <div class="top">
       <div>
-        <a href="#top" class="logo"><svg class="logo-mark" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#2563EB"/><circle cx="32" cy="32" r="15" fill="none" stroke="#fff" stroke-width="7"/><circle cx="46" cy="18" r="5" fill="#F97316"/></svg><span>O.Vue <b>WEB</b></span></a>
+        <a href="#top" class="logo footer-logo" aria-label="O.Vue WEB 맨 위로"><img src="assets/ovue-logo-gold.svg" alt="O.Vue WEB Website Creation" width="150" height="124"></a>
         <p style="margin-top:14px;max-width:26em">보는 순간 신뢰가 되는 홈페이지, O.Vue WEB이 만듭니다.</p>
       </div>
       <!-- TODO: 사업자 정보 입력 -->
