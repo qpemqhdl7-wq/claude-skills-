@@ -16,6 +16,7 @@
 ## 사용한 외부 컴포넌트
 - 강점(Why) 벤토 그리드: 21st.dev [bento grid 01](https://21st.dev/@avanishverma4/components/bento-grid-01) — React/framer-motion 원본을 정적 HTML + Motion(vanilla)으로 변환, O.Vue 디자인 토큰으로 재스타일
 - 히어로: 21st.dev [Hero Section with Device Mockups](https://21st.dev/@solaceui/components/hero-section-6) — 가운데 정렬 문구 + 데스크톱 화면 위 아이폰 목업 구성, 블러 인 텍스트 애니메이션, 아이폰 프레임 SVG를 정적 HTML + Motion(vanilla)으로 변환. 스크린샷 이미지 대신 HTML/CSS로 그린 사이트 화면을 넣고 3D 원근 효과를 더함
+- 진행 과정: 21st.dev [How It Works Timeline](https://21st.dev/@olewandowski1/components/how-it-works-2) — 아이콘 + 세로 연결선 타임라인을 정적 HTML로 변환. 왼쪽 고정 제목, 스크롤에 맞춰 그려지는 선, 3D 등장 효과 추가
 
 ## 폰트
 - 사이트 전체 폰트: **G마켓 산스** (Light 300 / Medium 500 / Bold 700) — 업체 제공 원본 OTF를 woff2로 변환해 `fonts/`에 포함 (외부 CDN 불필요)
