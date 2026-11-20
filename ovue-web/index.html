@@ -440,7 +440,7 @@ form.quote h3{font-size:20px}
 footer{background:#050814;color:var(--dark-muted);padding:56px 0 110px;font-size:14px}
 footer .top{display:grid;gap:28px}
 footer .logo{color:#fff}
-footer .info{display:grid;gap:4px;line-height:1.8}
+footer .info{display:grid;gap:4px;line-height:1.8;align-content:start}
 footer .info b{color:var(--dark-fg);font-weight:600;margin-right:6px}
 footer .links{display:flex;flex-wrap:wrap;gap:8px 20px}
 footer .links a{color:var(--dark-fg);min-height:44px;display:inline-flex;align-items:center}
@@ -538,11 +538,21 @@ footer .copy{margin-top:32px;padding-top:24px;border-top:1px solid rgba(255,255,
 .channel small{color:var(--fg-subtle)}
 .contact .cube.glass i{background:rgba(37,99,235,.08);border-color:rgba(37,99,235,.25)}
 /* footer, lightest */
-footer{background:#FFFFFF;color:var(--fg-subtle);border-top:1px solid var(--border)}
-footer .info b{color:var(--ink)}
-footer .links a{color:var(--fg)}
-footer .links a:hover{color:var(--primary)}
-footer .copy{border-top-color:var(--border)}
+footer{--fx:linear-gradient(90deg,#22D3EE 0%,#3B82F6 38%,#8B5CF6 68%,#FB923C 100%);position:relative;overflow:hidden;color:var(--fg-subtle);border-top:0;padding-bottom:0;
+  background:radial-gradient(36% 60% at 0% 0%,rgba(103,232,249,.14),transparent 70%),radial-gradient(34% 60% at 100% 100%,rgba(253,186,140,.20),transparent 70%),radial-gradient(30% 50% at 60% 100%,rgba(167,139,250,.12),transparent 70%),#FFFFFF}
+footer::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:var(--fx)}
+footer .foot-tag{margin-top:16px;max-width:26em;color:var(--fg-muted);font-size:15px;line-height:1.7}
+.foot-cta{display:inline-flex;align-items:center;gap:8px;margin-top:18px;min-height:44px;padding:0 18px;border-radius:999px;font-weight:700;font-size:14.5px;color:var(--ink);
+  background:linear-gradient(#fff,#fff) padding-box,var(--fx) border-box;border:1.5px solid transparent;transition:box-shadow .2s}
+.foot-cta .icon{width:18px;height:18px;color:#3B82F6}
+.foot-cta:hover{box-shadow:0 10px 24px -12px rgba(59,130,246,.55)}
+footer .info b{background:linear-gradient(90deg,#0E7490,#4338CA);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:#0E7490}
+footer .links a{color:var(--fg);background:var(--fx) left calc(100% - 10px)/0 2px no-repeat;transition:background-size .25s,color .2s}
+footer .links a:hover{color:var(--ink);background-size:100% 2px}
+footer .copy{border-top:1px solid transparent;border-image:linear-gradient(90deg,rgba(34,211,238,.35),rgba(139,92,246,.25),rgba(251,146,60,.35)) 1}
+.foot-mark{margin-top:28px;text-align:center;white-space:nowrap;font-weight:700;letter-spacing:-.03em;line-height:1.05;padding-top:.04em;margin-bottom:-.24em;font-size:clamp(56px,14.2vw,204px);
+  background:var(--fx);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:#3B82F6;opacity:.9;user-select:none}
+@media (max-width:767px){footer{padding-bottom:84px}.foot-mark{margin-top:20px}}
 </style>
 <script>
   try { if (!matchMedia('(prefers-reduced-motion: reduce)').matches) { document.documentElement.classList.add('intro'); setTimeout(function () { document.documentElement.classList.remove('intro'); }, 3500); } } catch (e) {}
@@ -938,7 +948,8 @@ footer .copy{border-top-color:var(--border)}
     <div class="top">
       <div>
         <a href="#top" class="logo footer-logo" aria-label="O.Vue WEB 맨 위로"><img src="assets/ovue-logo-gold.svg" alt="O.Vue WEB Website Creation" width="150" height="124"></a>
-        <p style="margin-top:14px;max-width:26em">보는 순간 신뢰가 되는 홈페이지, O.Vue WEB이 만듭니다.</p>
+        <p class="foot-tag">보는 순간, 머물고 싶어지는 홈페이지.<br><span style="white-space:nowrap">O.Vue WEB</span>이 만듭니다.</p>
+        <a href="#contact" class="foot-cta">상담 문의하기 <svg class="icon"><use href="#i-arrow"/></svg></a>
       </div>
       <!-- TODO: 사업자 정보 입력 -->
       <div class="info">
@@ -951,6 +962,7 @@ footer .copy{border-top-color:var(--border)}
     </div>
     <p class="copy en">© 2026 O.Vue WEB. All rights reserved.</p>
   </div>
+  <div class="foot-mark en" aria-hidden="true">O.Vue WEB</div>
 </footer>
 
 <div class="fab">
