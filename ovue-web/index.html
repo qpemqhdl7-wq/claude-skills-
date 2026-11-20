@@ -542,16 +542,26 @@ footer{--fx:linear-gradient(90deg,#22D3EE 0%,#3B82F6 38%,#8B5CF6 68%,#FB923C 100
   background:radial-gradient(36% 60% at 0% 0%,rgba(103,232,249,.14),transparent 70%),radial-gradient(34% 60% at 100% 100%,rgba(253,186,140,.20),transparent 70%),radial-gradient(30% 50% at 60% 100%,rgba(167,139,250,.12),transparent 70%),#FFFFFF}
 footer::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:var(--fx)}
 footer .foot-tag{margin-top:16px;max-width:26em;color:var(--fg-muted);font-size:15px;line-height:1.7}
-.foot-cta{display:inline-flex;align-items:center;gap:8px;margin-top:18px;min-height:44px;padding:0 18px;border-radius:999px;font-weight:700;font-size:14.5px;color:var(--ink);
-  background:linear-gradient(#fff,#fff) padding-box,var(--fx) border-box;border:1.5px solid transparent;transition:box-shadow .2s}
-.foot-cta .icon{width:18px;height:18px;color:#3B82F6}
-.foot-cta:hover{box-shadow:0 10px 24px -12px rgba(59,130,246,.55)}
 footer .info b{background:linear-gradient(90deg,#0E7490,#4338CA);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:#0E7490}
 footer .links a{color:var(--fg);background:var(--fx) left calc(100% - 10px)/0 2px no-repeat;transition:background-size .25s,color .2s}
 footer .links a:hover{color:var(--ink);background-size:100% 2px}
 footer .copy{border-top:1px solid transparent;border-image:linear-gradient(90deg,rgba(34,211,238,.35),rgba(139,92,246,.25),rgba(251,146,60,.35)) 1}
-.foot-mark{margin-top:28px;text-align:center;white-space:nowrap;font-weight:700;letter-spacing:-.03em;line-height:1.05;padding-top:.04em;margin-bottom:-.24em;font-size:clamp(56px,14.2vw,204px);
-  background:var(--fx);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:#3B82F6;opacity:.9;user-select:none}
+.foot-mark{display:flex;justify-content:center;margin-top:28px;white-space:nowrap;font-weight:700;letter-spacing:-.03em;line-height:1.05;padding-top:.04em;margin-bottom:-.24em;font-size:clamp(56px,14.2vw,204px);user-select:none}
+/* each letter: brand gradient (continuous across the word) + a white light band that sweeps letter by letter */
+@property --sx{syntax:"<percentage>";inherits:false;initial-value:160%}
+.foot-mark span{display:inline-block;position:relative;isolation:isolate;--sx:160%;
+  background:linear-gradient(105deg,transparent 0 34%,#CFFAFE 44%,#FFFFFF 50%,#FDE68A 56%,transparent 66%),var(--fx);
+  background-size:300% 100%,calc(var(--n) * 100%) 100%;
+  background-position:var(--sx) 0,calc(var(--i) / (var(--n) - 1) * 100%) 0;
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:#3B82F6;
+  animation:mark-shine 4.8s cubic-bezier(.45,0,.2,1) infinite,mark-lift 4.8s ease-in-out infinite;animation-delay:calc(var(--i) * .16s)}
+/* glow lives on a separate layer behind each letter (filters on clipped-text letters break the clip in Chromium) */
+.foot-mark span::before{content:attr(data-c);position:absolute;inset:0;z-index:-1;-webkit-text-fill-color:var(--g);color:var(--g);background:none;filter:blur(.09em);transform:scale(1.04);opacity:0;animation:mark-glow 4.8s ease-in-out infinite;animation-delay:inherit}
+@keyframes mark-shine{0%{--sx:160%}28%{--sx:-60%}100%{--sx:-60%}}
+@keyframes mark-lift{0%,30%,100%{transform:translateY(0)}12%{transform:translateY(-.04em)}}
+@keyframes mark-glow{0%,32%,100%{opacity:0}12%{opacity:.85}}
+.foot-mark.paused span,.foot-mark.paused span::before{animation-play-state:paused}
+@media (prefers-reduced-motion:reduce){.foot-mark span,.foot-mark span::before{animation:none}}
 @media (max-width:767px){footer{padding-bottom:84px}.foot-mark{margin-top:20px}}
 </style>
 <script>
@@ -949,7 +959,6 @@ footer .copy{border-top:1px solid transparent;border-image:linear-gradient(90deg
       <div>
         <a href="#top" class="logo footer-logo" aria-label="O.Vue WEB 맨 위로"><img src="assets/ovue-logo-gold.svg" alt="O.Vue WEB Website Creation" width="150" height="124"></a>
         <p class="foot-tag">보는 순간, 머물고 싶어지는 홈페이지.<br><span style="white-space:nowrap">O.Vue WEB</span>이 만듭니다.</p>
-        <a href="#contact" class="foot-cta">상담 문의하기 <svg class="icon"><use href="#i-arrow"/></svg></a>
       </div>
       <!-- TODO: 사업자 정보 입력 -->
       <div class="info">
@@ -962,7 +971,7 @@ footer .copy{border-top:1px solid transparent;border-image:linear-gradient(90deg
     </div>
     <p class="copy en">© 2026 O.Vue WEB. All rights reserved.</p>
   </div>
-  <div class="foot-mark en" aria-hidden="true">O.Vue WEB</div>
+  <div class="foot-mark en" aria-hidden="true" style="--n:9"><span style="--i:0;--g:#22D3EE" data-c="O">O</span><span style="--i:1;--g:#2BB5F1" data-c=".">.</span><span style="--i:2;--g:#3596F4" data-c="V">V</span><span style="--i:3;--g:#457DF6" data-c="u">u</span><span style="--i:4;--g:#636FF6" data-c="e">e</span><span style="--i:5;--g:#8161F6" data-c=" ">&nbsp;</span><span style="--i:6;--g:#A76AC8" data-c="W">W</span><span style="--i:7;--g:#D17E82" data-c="E">E</span><span style="--i:8;--g:#FB923C" data-c="B">B</span></div>
 </footer>
 
 <div class="fab">
@@ -1198,6 +1207,10 @@ footer .copy{border-top:1px solid transparent;border-image:linear-gradient(90deg
     stage.addEventListener('pointerenter', () => { hover = true; }); stage.addEventListener('pointerleave', () => { hover = false; });
     new IntersectionObserver(es => { vis = es[0].isIntersecting; cancelAnimationFrame(raf); last = 0; if (vis) raf = requestAnimationFrame(tick); }).observe(stage);
   })();
+</script>
+<script>
+  (function () { const m = document.querySelector('.foot-mark'); if (!m || !('IntersectionObserver' in window)) return;
+    m.classList.add('paused'); new IntersectionObserver(es => m.classList.toggle('paused', !es[0].isIntersecting)).observe(m); })();
 </script>
 </body>
 </html>
