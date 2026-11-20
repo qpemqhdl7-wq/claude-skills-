@@ -492,6 +492,56 @@ footer .copy{margin-top:32px;padding-top:24px;border-top:1px solid rgba(255,255,
 .contact .c2{--s:40px;left:44%;bottom:28px}
 .contact .c3{--s:28px;left:6%;bottom:-8px}
 @media (max-width:1023px){.contact .c1{--s:48px;right:4%;top:12px}.contact .c2{display:none}}
+
+/* ===== Page tone flow: dark at the top, easing to light at the bottom ===== */
+/* each section ends on the colour the next one starts with, so the page reads as one continuous gradient */
+.alt{border-top:0;border-bottom:0}
+.showcase{background:linear-gradient(180deg,#070B1A 0%,#091228 100%)}
+#why{background:linear-gradient(180deg,#091228 0%,#0D1A38 100%)}
+.cmp-sec{background:linear-gradient(180deg,#0D1A38 0%,#1B2F5A 100%)}
+#works{padding-top:300px;background:linear-gradient(180deg,#1B2F5A 0,#2A406D 70px,#52678F 130px,#8A9CBE 185px,#BCC9E0 235px,#DCE4F1 285px,#E8EDF7 380px,#ECF0F8 100%)}
+#pricing{background:linear-gradient(180deg,#ECF0F8 0%,#F0F3F9 100%)}
+.inc-sec{background:linear-gradient(180deg,#F0F3F9 0%,#F3F5FB 100%)}
+#process{background:linear-gradient(180deg,#F3F5FB 0%,#F5F7FC 100%)}
+.trust{background:linear-gradient(180deg,#F5F7FC 0%,#F8F9FD 100%);color:var(--fg)}
+#faq{background:linear-gradient(180deg,#F8F9FD 0%,#FBFCFE 100%)}
+.contact{background:linear-gradient(180deg,#FBFCFE 0%,#FFFFFF 100%)}
+@media (max-width:1023px){#works{padding-top:270px}}
+/* comparison on the dark part of the flow */
+.cmp-sec .cmp{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.09)}
+.cmp-sec .cmp h3{color:#fff}
+.cmp-sec .cmp li{border-top-color:rgba(255,255,255,.08)}
+.cmp-sec .cmp li span:first-child{color:#8A9AB8}
+.cmp-sec .cmp li span:last-child{color:#CBD5E1}
+.cmp-sec .chip-mini{background:rgba(255,255,255,.08);color:#AAB6CC}
+.cmp-sec .cmp.us{background:linear-gradient(160deg,rgba(34,211,238,.16),rgba(59,130,246,.10) 60%,rgba(255,255,255,.03));border-color:rgba(103,232,249,.35);box-shadow:0 30px 60px -30px rgba(34,211,238,.35)}
+.cmp-sec .cmp.us li span:last-child{color:#fff}
+.cmp-sec .cmp.us li span:last-child::before{background:#67E8F9}
+.cmp-sec .cmp.us .chip-mini{background:var(--aqua-grad);color:#04121F}
+/* after-open section, now on the light part */
+.trust .section-head h2{color:var(--ink)}.trust .section-head p{color:var(--fg-muted)}
+.trust .eyebrow{color:var(--primary)}
+.trust .card{background:var(--surface);border-color:var(--border)}
+.trust .card:hover{border-color:var(--primary-100);box-shadow:var(--shadow-md)}
+.trust .card h3{color:var(--ink)}.trust .card p{color:var(--fg-muted)}
+.trust .card .ic{background:var(--primary-50);color:var(--primary)}
+.trust .globe{opacity:.35}
+/* contact card, light */
+.contact-box{background:linear-gradient(135deg,#E3F6FB 0%,#E9EFFD 55%,#EEF0FB 100%);color:var(--fg);box-shadow:0 0 0 1px #DCE6F5,0 30px 60px -36px rgba(30,58,138,.35)}
+.contact-box::before{background-image:linear-gradient(to right,rgba(37,99,235,.06) 1px,transparent 1px),linear-gradient(to bottom,rgba(37,99,235,.06) 1px,transparent 1px)}
+.contact-box h2{color:var(--ink)}
+.contact-box .lead{color:var(--fg-muted)}
+.channel{background:rgba(255,255,255,.75);border-color:#DCE6F5;color:var(--ink)}
+.channel:hover{background:#fff}
+.channel .ci{background:var(--aqua-grad);color:#04121F}
+.channel small{color:var(--fg-subtle)}
+.contact .cube.glass i{background:rgba(37,99,235,.08);border-color:rgba(37,99,235,.25)}
+/* footer, lightest */
+footer{background:#FFFFFF;color:var(--fg-subtle);border-top:1px solid var(--border)}
+footer .info b{color:var(--ink)}
+footer .links a{color:var(--fg)}
+footer .links a:hover{color:var(--primary)}
+footer .copy{border-top-color:var(--border)}
 </style>
 <script>
   try { if (!matchMedia('(prefers-reduced-motion: reduce)').matches) { document.documentElement.classList.add('intro'); setTimeout(function () { document.documentElement.classList.remove('intro'); }, 3500); } } catch (e) {}
@@ -649,7 +699,7 @@ footer .copy{margin-top:32px;padding-top:24px;border-top:1px solid rgba(255,255,
   </section>
 
   <!-- ===== COMPARE ===== -->
-  <section class="section alt" aria-labelledby="cmp-title">
+  <section class="section dark-sec cmp-sec" aria-labelledby="cmp-title">
     <div class="container">
       <div class="section-head" data-reveal>
         <span class="eyebrow">Why O.Vue</span>
@@ -771,7 +821,7 @@ footer .copy{margin-top:32px;padding-top:24px;border-top:1px solid rgba(255,255,
   </section>
 
   <!-- ===== INCLUDED ===== -->
-  <section class="section" aria-labelledby="inc-title">
+  <section class="section inc-sec" aria-labelledby="inc-title">
     <div class="container">
       <div class="section-head" data-reveal>
         <span class="eyebrow">Features</span>
