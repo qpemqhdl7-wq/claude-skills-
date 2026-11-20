@@ -15,7 +15,7 @@
 
 ## 사용한 외부 컴포넌트
 - 강점(Why) 벤토 그리드: 21st.dev [bento grid 01](https://21st.dev/@avanishverma4/components/bento-grid-01) — React/framer-motion 원본을 정적 HTML + Motion(vanilla)으로 변환, O.Vue 디자인 토큰으로 재스타일
-- 히어로: 21st.dev [Hero Section with Device Mockups](https://21st.dev/@solaceui/components/hero-section-6) — 가운데 정렬 문구 + 데스크톱 화면 위 아이폰 목업 구성, 블러 인 텍스트 애니메이션, 아이폰 프레임 SVG를 정적 HTML + Motion(vanilla)으로 변환. 스크린샷 이미지 대신 HTML/CSS로 그린 사이트 화면을 넣고 3D 원근 효과를 더함
+- 히어로 휴대폰 프레임 SVG: 21st.dev [Hero Section with Device Mockups](https://21st.dev/@solaceui/components/hero-section-6)에서 가져옴
 - 진행 과정: 21st.dev [How It Works Timeline](https://21st.dev/@olewandowski1/components/how-it-works-2) — 아이콘 + 세로 연결선 타임라인을 정적 HTML로 변환. 왼쪽 고정 제목, 스크롤에 맞춰 그려지는 선, 3D 등장 효과 추가
 
 ## 폰트
@@ -29,3 +29,11 @@
 - `ovue-logo-gold.svg` / `ovue-logo-white.svg` — 전체 로고 (Website Creation 포함): 푸터 등 넓은 자리
 - `ovue-badge-gold.svg` / `ovue-badge-white.svg` — 태그라인 없는 로고: 헤더 등 작은 자리
 - `favicon.svg` — 브라우저 탭 아이콘 (네이비 바탕 + 금색 창틀 + O.)
+
+## 첫 화면 (밤의 풀빌라 컨셉)
+- 3초 인트로: 로고 모양 브라우저 창 테두리가 금색으로 그려짐(0~0.6초) → 밤 수영장 물빛이 차오름(~1.6초) → 풀빌라 예시 홈페이지가 조립됨(~2.4초) → 창이 3D로 기울며 휴대폰·예약 알림이 펼쳐지고 문구 등장(~3초)
+- 물빛은 WebGL 셰이더(직접 작성)로 실시간 렌더링, 마우스를 따라 반사광이 움직임. 화면 밖이면 멈춤
+- 같은 방문 중 재방문 시 인트로 0.3배 속도, ‘건너뛰기’ 버튼 제공. ‘동작 줄이기’ 설정이면 인트로 없이 완성 화면 표시
+- 히어로 속 사이트 ‘LUMI’는 가상 브랜드 예시 (실제 풀빌라 포트폴리오가 생기면 사진으로 교체)
+- 히어로 아래 띠 대신 ‘공간의 온도까지 / 화면에 담습니다’ 외곽선 문구가 스크롤에 따라 빛으로 채워짐
+- 톤: 혼합 다크 — 헤더·히어로·메시지·강점·오픈 후 지원·상담·푸터는 밤 그라데이션, 포트폴리오·요금·진행 과정·FAQ는 밝게
