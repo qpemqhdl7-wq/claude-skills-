@@ -496,16 +496,17 @@ footer .copy{margin-top:32px;padding-top:24px;border-top:1px solid rgba(255,255,
 /* ===== Page tone flow: dark at the top, easing to light at the bottom ===== */
 /* each section ends on the colour the next one starts with, so the page reads as one continuous gradient */
 .alt{border-top:0;border-bottom:0}
-.showcase{background:linear-gradient(180deg,#070B1A 0%,#091228 100%)}
-#why{background:linear-gradient(180deg,#091228 0%,#0D1A38 100%)}
-.cmp-sec{background:linear-gradient(180deg,#0D1A38 0%,#1B2F5A 100%)}
-#works{padding-top:300px;background:linear-gradient(180deg,#1B2F5A 0,#2A406D 70px,#52678F 130px,#8A9CBE 185px,#BCC9E0 235px,#DCE4F1 285px,#E8EDF7 380px,#ECF0F8 100%)}
-#pricing{background:linear-gradient(180deg,#ECF0F8 0%,#F0F3F9 100%)}
-.inc-sec{background:linear-gradient(180deg,#F0F3F9 0%,#F3F5FB 100%)}
-#process{background:linear-gradient(180deg,#F3F5FB 0%,#F5F7FC 100%)}
-.trust{background:linear-gradient(180deg,#F5F7FC 0%,#F8F9FD 100%);color:var(--fg)}
-#faq{background:linear-gradient(180deg,#F8F9FD 0%,#FBFCFE 100%)}
-.contact{background:linear-gradient(180deg,#FBFCFE 0%,#FFFFFF 100%)}
+/* night → dawn → morning. Each section: soft colour glows (fade out before the edges) over a linear base whose end colour = next section's start colour */
+.showcase{background:radial-gradient(38% 45% at 78% 62%,rgba(34,211,238,.13),transparent 70%),radial-gradient(34% 40% at 12% 30%,rgba(59,130,246,.14),transparent 70%),linear-gradient(180deg,#070B1A 0%,#0B1636 100%)}
+#why{background:radial-gradient(36% 40% at 88% 30%,rgba(139,92,246,.16),transparent 70%),radial-gradient(34% 40% at 8% 66%,rgba(34,211,238,.10),transparent 70%),linear-gradient(180deg,#0B1636 0%,#13205A 100%)}
+.cmp-sec{background:radial-gradient(50% 45% at 50% 66%,rgba(96,165,250,.22),transparent 70%),radial-gradient(30% 40% at 90% 32%,rgba(167,139,250,.14),transparent 70%),linear-gradient(180deg,#13205A 0%,#263C7E 100%)}
+#works{padding-top:300px;background:radial-gradient(40% 260px at 84% 230px,rgba(253,186,140,.30),transparent 70%),radial-gradient(36% 240px at 12% 300px,rgba(165,180,252,.30),transparent 70%),linear-gradient(180deg,#263C7E 0,#3D52A0 70px,#6474BE 130px,#97A0DA 185px,#C2C6EE 235px,#E0E1F9 285px,#ECEEFC 380px,#EEF3FD 100%)}
+#pricing{background:radial-gradient(40% 50% at 8% 38%,rgba(56,189,248,.12),transparent 70%),radial-gradient(36% 45% at 95% 66%,rgba(99,102,241,.08),transparent 70%),linear-gradient(180deg,#EEF3FD 0%,#E8F4FE 100%)}
+.inc-sec{background:radial-gradient(45% 60% at 88% 50%,rgba(45,212,191,.12),transparent 70%),linear-gradient(180deg,#E8F4FE 0%,#E8F8F8 100%)}
+#process{background:radial-gradient(40% 50% at 4% 62%,rgba(129,140,248,.13),transparent 70%),radial-gradient(30% 40% at 96% 30%,rgba(45,212,191,.08),transparent 70%),linear-gradient(180deg,#E8F8F8 0%,#F1F1FC 100%)}
+.trust{background:radial-gradient(42% 55% at 86% 40%,rgba(251,191,146,.20),transparent 70%),radial-gradient(34% 45% at 10% 66%,rgba(196,181,253,.14),transparent 70%),linear-gradient(180deg,#F1F1FC 0%,#FBF4EF 100%);color:var(--fg)}
+#faq{background:radial-gradient(40% 50% at 50% 36%,rgba(251,191,146,.10),transparent 70%),linear-gradient(180deg,#FBF4EF 0%,#FDF9F6 100%)}
+.contact{background:linear-gradient(180deg,#FDF9F6 0%,#FFFFFF 100%)}
 @media (max-width:1023px){#works{padding-top:270px}}
 /* comparison on the dark part of the flow */
 .cmp-sec .cmp{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.09)}
@@ -527,7 +528,7 @@ footer .copy{margin-top:32px;padding-top:24px;border-top:1px solid rgba(255,255,
 .trust .card .ic{background:var(--primary-50);color:var(--primary)}
 .trust .globe{opacity:.35}
 /* contact card, light */
-.contact-box{background:linear-gradient(135deg,#E3F6FB 0%,#E9EFFD 55%,#EEF0FB 100%);color:var(--fg);box-shadow:0 0 0 1px #DCE6F5,0 30px 60px -36px rgba(30,58,138,.35)}
+.contact-box{background:radial-gradient(60% 80% at 100% 0%,rgba(251,191,146,.35),transparent 65%),linear-gradient(135deg,#DDF5FB 0%,#E6ECFD 50%,#F1EAFB 100%);color:var(--fg);box-shadow:0 0 0 1px #DCE6F5,0 30px 60px -36px rgba(30,58,138,.35)}
 .contact-box::before{background-image:linear-gradient(to right,rgba(37,99,235,.06) 1px,transparent 1px),linear-gradient(to bottom,rgba(37,99,235,.06) 1px,transparent 1px)}
 .contact-box h2{color:var(--ink)}
 .contact-box .lead{color:var(--fg-muted)}
