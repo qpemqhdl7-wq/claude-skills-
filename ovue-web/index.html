@@ -133,22 +133,6 @@ p{margin:0}
 .v-book span{display:flex;flex-direction:column;gap:.3cqw}
 .v-book b{color:#fff;font-size:1.45cqw}
 .v-book em{font-style:normal;padding:1.1cqw 1.8cqw;border-radius:1cqw;background:linear-gradient(135deg,#67E8F9,#22D3EE 45%,#60A5FA);color:#04121F;font-weight:700;font-size:1.2cqw}
-/* phone */
-.phone{--pw:clamp(96px,17vw,200px);position:absolute;right:-3%;bottom:-8%;width:var(--pw);aspect-ratio:433/882;transform:translateZ(90px);filter:drop-shadow(0 30px 40px rgba(0,0,0,.6))}
-.phone-frame{position:absolute;inset:0;width:100%;height:100%}
-.phone-screen{position:absolute;left:4.9%;top:2.18%;width:89.95%;height:95.64%;border-radius:12.9% / 6%;overflow:hidden;background:#0A1430;container-type:inline-size}
-.p-sky{position:absolute;inset:0 0 42% 0;background:linear-gradient(180deg,#0B1736,#1B2E5C 60%,#5A587A)}
-.p-house{position:absolute;left:14%;right:8%;bottom:42%;height:12%}
-.p-house span{position:absolute;bottom:0;background:#0B1428}
-.p-house span:first-child{left:0;width:64%;height:100%}
-.p-house span:first-child::before{content:"";position:absolute;inset:24% 8% 14%;background:radial-gradient(70% 90% at 50% 100%,#FFE9C2,#E9A955);opacity:.9;box-shadow:0 0 14px 3px rgba(251,191,36,.25)}
-.p-house span:last-child{left:66%;width:34%;height:60%}
-.p-pool{position:absolute;left:0;right:0;bottom:0;height:42%;background:radial-gradient(50% 35% at 50% 0%,rgba(251,191,36,.35),transparent 70%),linear-gradient(170deg,transparent 30%,rgba(165,243,252,.18) 32%,transparent 36%,transparent 55%,rgba(165,243,252,.14) 57%,transparent 61%),linear-gradient(180deg,#0E7490,#0B3B5E 60%,#082041)}
-.p-ui{position:absolute;inset:0;padding:22% 9% 9%;display:flex;flex-direction:column;color:#fff}
-.p-ui b{font-size:7cqw;letter-spacing:.2em}
-.p-ui strong{margin-top:10%;font-size:11cqw;line-height:1.05}
-.p-ui em{margin-top:auto;font-style:normal;text-align:center;padding:5% 0;border-radius:999px;background:linear-gradient(135deg,#67E8F9,#22D3EE 45%,#60A5FA);color:#04121F;font-weight:700;font-size:6cqw}
-.island{position:absolute;left:35.6%;top:3.4%;width:28.6%;height:4.2%;border-radius:999px;background:#020617}
 /* reservation toast */
 .toast{position:absolute;left:-3%;top:58%;transform:translateZ(120px);display:flex;gap:10px;align-items:center;padding:12px 16px 12px 12px;border-radius:16px;background:rgba(15,23,42,.72);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.12);box-shadow:0 20px 40px -16px rgba(0,0,0,.7);white-space:nowrap;font-size:13px;color:#94A3B8}
 .toast .t-ic{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;background:rgba(34,211,238,.15);color:#67E8F9}
@@ -163,7 +147,7 @@ p{margin:0}
 .link-arrow:hover{color:#fff;border-color:#fff}
 .skip-intro{position:absolute;right:max(24px,env(safe-area-inset-right,0px));top:14px;z-index:10;min-height:40px;padding:0 16px;border-radius:999px;border:1px solid rgba(255,255,255,.2);background:rgba(15,23,42,.6);color:#CBD5E1;font-size:13px}
 @media (min-width:900px){.hero-copy{grid-template-columns:1.45fr .55fr;gap:40px}}
-@media (max-width:640px){.toast{display:none}.phone{right:-2%;bottom:-14%}.hero{padding-bottom:56px}.hero-copy{margin-top:48px}}
+@media (max-width:640px){.hero{padding-bottom:56px}.hero-copy{margin-top:48px}}
 /* intro pre-state: hidden only while the intro is about to run (html.intro set in <head>) */
 .intro .hero [data-intro]{opacity:0}
 
@@ -568,13 +552,12 @@ footer .copy{border-top:1px solid transparent;border-image:linear-gradient(90deg
 .hero > .hero-wrap{width:100%;max-width:none;padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px));display:flex;align-items:center;justify-content:center}
 .hero-frame{--avail:calc(100svh - 68px - 44px - 36px - 74px);width:min(100%,calc((var(--avail) - 40px) * 16 / 8.4));display:flex;flex-direction:column;gap:36px}
 .hero-frame .stage{max-width:none;width:100%}
-.hero-frame .phone{bottom:-4%}
 .hero-frame .hero-copy{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin:0;grid-template-columns:none}
 .hero-frame .hero-copy .lead{margin:0;max-width:none;font-size:clamp(15px,1.35vw,19px);line-height:1.65;color:#AAB6CC}
 .hero-frame .link-arrow{gap:8px;flex:none;font-size:16px}
 .hero-frame .link-arrow .icon{width:18px;height:18px;color:#67E8F9}
 @media (max-width:640px){.hero{padding:16px 0 20px}.hero > .hero-wrap{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
-  .hero-frame{width:100%;gap:40px}.hero-frame .villa{aspect-ratio:4/4.6}.hero-frame .hero-copy{flex-direction:column;align-items:flex-start;gap:14px}.hero-frame .phone{--pw:30vw;bottom:-6%}}
+  .hero-frame{width:100%;gap:40px}.hero-frame .villa{aspect-ratio:4/4.6}.hero-frame .hero-copy{flex-direction:column;align-items:flex-start;gap:14px}}
 </style>
 <script>
   try { if (!matchMedia('(prefers-reduced-motion: reduce)').matches) { document.documentElement.classList.add('intro'); setTimeout(function () { document.documentElement.classList.remove('intro'); }, 3500); } } catch (e) {}
@@ -644,13 +627,6 @@ footer .copy{border-top:1px solid transparent;border-image:linear-gradient(90deg
               </div>
               <div class="v-pool"><canvas class="water"></canvas><span class="v-glint"></span></div>
             </div>
-          </div>
-          <div class="phone" data-intro="phone">
-            <svg class="phone-frame" viewBox="0 0 433 882"><path d="M2 73C2 32.68 34.68 0 75 0H357C397.32 0 430 32.68 430 73V809C430 849.32 397.32 882 357 882H75C34.68 882 2 849.32 2 809V73Z" fill="#1E293B"/><path d="M6 74C6 35.34 37.34 4 76 4H356C394.66 4 426 35.34 426 74V808C426 846.66 394.66 878 356 878H76C37.34 878 6 846.66 6 808V74Z" fill="#020617"/></svg>
-            <div class="phone-screen">
-              <div class="p-sky"></div><div class="p-house"><span></span><span></span></div><div class="p-pool"></div>
-            </div>
-            <span class="island"></span>
           </div>
         </div>
       </div>
@@ -1086,9 +1062,8 @@ footer .copy{border-top:1px solid transparent;border-image:linear-gradient(90deg
         // 1.6–2.4s  the villa homepage assembles: nav → title → booking bar
         hero.querySelectorAll('[data-build]').forEach((el, i) => go(el, { opacity: [0, 1], y: [18, 0], filter: ['blur(8px)', 'blur(0px)'] }, { duration: 0.5, delay: 1.55 + i * 0.22, ease: 'easeOut' }));
         go(rect, { opacity: [1, 0.45] }, { duration: 0.6, delay: 1.8 });
-        // 2.4–3.0s  camera pulls back: window tilts into 3D, phone + reservation toast fan out, copy rises
+        // 2.4–3.0s  camera pulls back: window tilts into 3D, copy rises
         go(q('.win'), { scale: [1.06, 1], rotateX: [0, 6], rotateY: [0, -5] }, { duration: 1.4, delay: 1.7, ease: [0.16, 1, 0.3, 1] });
-        go(q('.phone'), { opacity: [0, 1], x: [-160, 0], z: [0, 90], rotateY: [0, -14] }, { duration: 0.9, delay: 2.3, ease: [0.16, 1, 0.3, 1] });
         go(q('.toast'), { opacity: [0, 1], x: [60, 0], z: [0, 120], scale: [0.8, 1] }, { duration: 0.7, delay: 2.55, ease: [0.16, 1, 0.3, 1] });
         go(q('.hero-copy'), { opacity: [0, 1], y: [40, 0] }, { duration: 0.8, delay: 2.5, ease: [0.16, 1, 0.3, 1] });
         // skip
@@ -1103,7 +1078,6 @@ footer .copy{border-top:1px solid transparent;border-image:linear-gradient(90deg
         if (fine) hero.addEventListener('pointermove', e => {
           const px = e.clientX / innerWidth - 0.5, py = e.clientY / innerHeight - 0.5;
           animate(win, { rotateY: -5 + px * 10, rotateX: 6 - py * 6 }, { duration: 0.7, ease: 'easeOut' });
-          animate(q('.phone'), { x: px * -18, y: py * -12 }, { duration: 0.8, ease: 'easeOut' });
         });
         scroll(animate(stg, { y: [0, 90], scale: [1, 0.94], opacity: [1, 0.6] }, { ease: 'linear' }), { target: hero, offset: ['start start', 'end start'] });
       })();
