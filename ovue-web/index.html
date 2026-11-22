@@ -540,7 +540,7 @@ footer .copy{border-top:1px solid transparent;border-image:linear-gradient(90deg
 @media (max-width:640px){.hero{padding:16px 0 20px}.hero > .hero-wrap{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
   .hero-frame{width:100%;gap:40px}.hero-frame .villa{aspect-ratio:4/4.6}.hero-frame .hero-copy{flex-direction:column;align-items:flex-start;gap:14px}}
 .hero::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(120% 90% at 50% 40%,transparent 55%,rgba(2,4,12,.55) 100%)}
-.hero::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.07;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.hero::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.035;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
 .hero > .hero-wrap{position:relative;z-index:1}
 </style>
 <script>
@@ -1111,12 +1111,9 @@ footer .copy{border-top:1px solid transparent;border-image:linear-gradient(90deg
           skip.addEventListener('click', () => { runs.forEach(a => a.complete()); skip.hidden = true; });
           setTimeout(() => { skip.hidden = true; }, 3400);
         }
-        // after the intro: pointer parallax on the window, gentle drift on scroll
+        // after the intro: gentle drift on scroll
         const win = q('.win'), stg = q('.stage-scroll');
-        if (fine) hero.addEventListener('pointermove', e => {
-          const px = e.clientX / innerWidth - 0.5, py = e.clientY / innerHeight - 0.5;
-          animate(win, { rotateY: -2 + px * 5, rotateX: 3 - py * 3 }, { duration: 0.9, ease: 'easeOut' });
-        });
+        // (no pointer tilt: re-tilting a layer that holds the live water canvas forces a full re-composite every frame)
         scroll(animate(stg, { y: [0, 90], scale: [1, 0.94], opacity: [1, 0.6] }, { ease: 'linear' }), { target: hero, offset: ['start start', 'end start'] });
       })();
       // Process timeline: line draws with scroll, steps rise in 3D, icons pop
@@ -1215,9 +1212,11 @@ footer .copy{border-top:1px solid transparent;border-image:linear-gradient(90deg
       gl.uniform2f(uR, cv.width, cv.height); gl.uniform1f(uT, (now - t0) / 1000); gl.uniform2f(uM, mx, my); gl.uniform3fv(uW, arr);
       gl.uniform2f(uMo, moonX, moon ? 1 : 0); gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4); };
     const tick = now => { draw(now); if (vis) raf = requestAnimationFrame(tick); };
-    addEventListener('pointermove', e => { const r = cv.getBoundingClientRect(); tx = (e.clientX - r.left) / r.width; ty = 1 - (e.clientY - r.top) / r.height; }, { passive: true });
-    size(); draw(t0 + 4000); addEventListener('resize', () => { size(); draw(performance.now()); });
-    setInterval(measure, 500);                                   /* keep reflections aligned while the window tilts */
+    let box = null; const rebox = () => { box = cv.getBoundingClientRect(); };
+    addEventListener('pointermove', e => { if (!vis) return; if (!box) rebox(); tx = (e.clientX - box.left) / box.width; ty = 1 - (e.clientY - box.top) / box.height; }, { passive: true });
+    addEventListener('scroll', () => { box = null; }, { passive: true });
+    size(); draw(t0 + 4000); addEventListener('resize', () => { size(); box = null; draw(performance.now()); });
+    [1200, 2400, 3600].forEach(ms => setTimeout(() => { measure(); box = null; }, ms));   /* re-align after the intro moves the window */
     if (!reduce && 'IntersectionObserver' in window) new IntersectionObserver(es => { vis = es[0].isIntersecting; cancelAnimationFrame(raf); if (vis) raf = requestAnimationFrame(tick); }).observe(cv);
   })();
 </script>
