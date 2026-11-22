@@ -90,49 +90,29 @@ p{margin:0}
 
 /* ===== Hero — night pool intro ===== */
 .hero{position:relative;overflow:hidden;display:flex;align-items:center;padding:40px 0 64px;background:radial-gradient(120% 80% at 50% 0%,#14234A 0%,#0B1328 45%,#070B1A 100%);color:var(--n-fg)}
-.hero-aurora{position:absolute;inset:-20% -10% auto;height:90%;pointer-events:none;filter:blur(60px);opacity:.55;
+.hero-aurora{position:absolute;inset:-20% -10% auto;height:90%;pointer-events:none;filter:blur(60px);opacity:.22;
   background:radial-gradient(40% 50% at 25% 35%,rgba(34,211,238,.35),transparent 70%),radial-gradient(35% 45% at 78% 25%,rgba(59,130,246,.35),transparent 70%),radial-gradient(30% 35% at 60% 70%,rgba(243,213,138,.12),transparent 70%)}
 .stage-scroll{position:relative}
 .stage{position:relative;max-width:1040px;margin:0 auto;perspective:1800px}
 /* browser window (= the logo's frame motif) */
-.win{position:relative;border-radius:18px;background:#0B1222;box-shadow:0 50px 100px -40px rgba(0,0,0,.8),0 0 0 1px rgba(255,255,255,.06),0 0 80px -20px rgba(34,211,238,.25);transform-style:preserve-3d}
+.win{position:relative;border-radius:18px;background:#0B1222;box-shadow:0 40px 90px -40px rgba(0,0,0,.75),0 0 0 1px rgba(255,255,255,.05);transform-style:preserve-3d}
 .win-draw{position:absolute;inset:-1px;width:calc(100% + 2px);height:calc(100% + 2px);z-index:5;pointer-events:none;overflow:visible}
-.win-draw rect{fill:none;stroke:#F3D58A;stroke-width:2;vector-effect:non-scaling-stroke;stroke-dasharray:1;stroke-dashoffset:0;opacity:.45}
+.win-draw rect{fill:none;stroke:#E9C97A;stroke-width:1.25;vector-effect:non-scaling-stroke;stroke-dasharray:1;stroke-dashoffset:0;opacity:.38}
 .win-top{display:flex;align-items:center;gap:6px;height:40px;padding:0 14px;border-bottom:1px solid rgba(255,255,255,.06);background:#0E1629;border-radius:18px 18px 0 0}
 .win-top i{width:10px;height:10px;border-radius:50%;background:#334155}
 .win-top i:nth-child(1){background:#F87171}.win-top i:nth-child(2){background:#FBBF24}.win-top i:nth-child(3){background:#34D399}
 .win-url{margin-left:10px;flex:0 1 320px;height:24px;border-radius:999px;background:#151F36;color:#94A3B8;font-size:11.5px;display:flex;align-items:center;padding:0 12px}
 /* the villa site inside the window */
+/* night villa scene — one flat illustration (SVG) over a calm night-pool surface (WebGL) */
 .villa{position:relative;aspect-ratio:16/8.4;overflow:hidden;border-radius:0 0 18px 18px;container-type:inline-size;background:#0A1430}
-.v-sky{position:absolute;inset:0 0 40% 0;background:linear-gradient(180deg,#0B1736 0%,#1B2E5C 55%,#3B4A7A 82%,#7A6A7E 100%)}
-.v-sky::before{content:"";position:absolute;inset:0;opacity:.8;background-image:radial-gradient(1px 1px at 12% 18%,#fff,transparent),radial-gradient(1px 1px at 28% 8%,#fff,transparent),radial-gradient(1.5px 1.5px at 44% 22%,#fff,transparent),radial-gradient(1px 1px at 63% 12%,#fff,transparent),radial-gradient(1px 1px at 82% 20%,#fff,transparent),radial-gradient(1px 1px at 92% 6%,#fff,transparent),radial-gradient(1px 1px at 5% 34%,#fff,transparent)}
-.v-moon{position:absolute;right:30%;top:24%;width:5.5cqw;height:5.5cqw;border-radius:50%;background:radial-gradient(circle at 40% 40%,#FFF8E1,#F3D58A 60%,#C9962F);box-shadow:0 0 40px 10px rgba(243,213,138,.25)}
-.v-hills{position:absolute;left:-5%;right:-5%;bottom:38%;height:18%;background:radial-gradient(60% 100% at 20% 100%,#13213F 60%,transparent 61%),radial-gradient(55% 90% at 75% 100%,#0F1B36 60%,transparent 61%)}
-.v-house{position:absolute;left:30%;right:6%;bottom:40%;height:30%}
-.v-house span{position:absolute;display:block}
-.h-roof{left:4%;width:72%;top:8%;height:7%;background:#070D1C;border-radius:2px;box-shadow:0 2px 0 rgba(255,255,255,.05)}
-.h-main{left:8%;width:58%;top:15%;bottom:0;background:linear-gradient(90deg,#0B1428,#101C36)}
-.h-main::before{content:"";position:absolute;left:6%;right:6%;top:16%;bottom:10%;border-radius:2px;background:linear-gradient(90deg,rgba(11,20,40,.85) 0 1.5%,transparent 1.5% 18.5%,rgba(11,20,40,.85) 18.5% 20%,transparent 20% 38%,rgba(11,20,40,.85) 38% 39.5%,transparent 39.5% 58%,rgba(11,20,40,.85) 58% 59.5%,transparent 59.5% 78%,rgba(11,20,40,.85) 78% 79.5%,transparent 79.5%),radial-gradient(70% 90% at 50% 100%,#FFE9C2 0%,#F8C978 45%,#C98A3A 100%);opacity:.92;box-shadow:0 0 36px 8px rgba(251,191,36,.22)}
-.h-wing{left:60%;width:36%;top:42%;bottom:0;background:#0C162D}
-.h-wing::before{content:"";position:absolute;left:12%;right:12%;top:22%;bottom:18%;background:radial-gradient(80% 100% at 50% 100%,#FFE2A8,#E9A955);opacity:.8;box-shadow:0 0 22px 4px rgba(251,191,36,.2)}
-.h-tree{bottom:0;border-radius:50% 50% 40% 40%;background:#081022}
-.h-tree.t1{left:-14%;width:16%;height:85%}.h-tree.t2{left:93%;width:11%;height:60%}
-.v-pool{position:absolute;left:0;right:0;bottom:0;height:40%;background:linear-gradient(180deg,#0E7490,#0B3B5E 60%,#082041)}
-.v-pool::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:#E2E8F0;opacity:.5;z-index:2}
+.v-sky{position:absolute;inset:0;background:linear-gradient(180deg,#0A1534 0%,#152852 45%,#2C3E6E 62%,#4A5278 68%,#0A1430 68.1%)}
+.v-sky::before{content:"";position:absolute;inset:0 0 40% 0;opacity:.75;background-image:radial-gradient(1px 1px at 12% 18%,#fff,transparent),radial-gradient(1px 1px at 28% 8%,#fff,transparent),radial-gradient(1.5px 1.5px at 44% 22%,#fff,transparent),radial-gradient(1px 1px at 63% 12%,#fff,transparent),radial-gradient(1px 1px at 82% 20%,#fff,transparent),radial-gradient(1px 1px at 92% 6%,#fff,transparent),radial-gradient(1px 1px at 5% 34%,#fff,transparent),radial-gradient(1px 1px at 72% 30%,#fff,transparent)}
+.v-moon{position:absolute;right:24%;top:16%;width:4.6cqw;height:4.6cqw;border-radius:50%;background:radial-gradient(circle at 38% 38%,#FFFBEA,#F6DFA0 62%,#D9B05A);box-shadow:0 0 30px 6px rgba(246,223,160,.28),0 0 120px 40px rgba(246,223,160,.10)}
+.v-moon::after{content:"";position:absolute;inset:-60%;border-radius:50%;background:radial-gradient(circle,rgba(246,223,160,.12) 30%,transparent 70%)}
+.v-scene{position:absolute;inset:0;width:100%;height:100%;display:block}
+.v-pool{position:absolute;left:0;right:0;bottom:0;height:35.7%;background:linear-gradient(180deg,#0D3346,#04101F)}
 .water{position:absolute;inset:0;width:100%;height:100%;display:block}
-.v-glint{position:absolute;left:38%;width:30%;top:0;height:100%;background:linear-gradient(180deg,rgba(251,191,36,.45),transparent 75%);mix-blend-mode:screen;filter:blur(6px);pointer-events:none}
-.v-ui{position:absolute;inset:0;padding:2.4cqw 3.2cqw;display:flex;flex-direction:column;color:#fff}
-.v-nav{display:flex;align-items:center;gap:2.6cqw;font-size:1.25cqw}
-.v-nav b{font-size:1.9cqw;letter-spacing:.18em;margin-right:auto;font-weight:700}
-.v-nav span{color:rgba(255,255,255,.8)}
-.v-nav em{font-style:normal;padding:.7cqw 1.6cqw;border-radius:999px;border:1px solid rgba(255,255,255,.5)}
-.v-title{margin-top:5.5cqw;max-width:46%}
-.v-title small{display:block;font-size:1.05cqw;letter-spacing:.3em;color:#A5F3FC;margin-bottom:1.2cqw}
-.v-title strong{display:block;font-size:5.6cqw;line-height:1.02;font-weight:700;letter-spacing:-.01em;text-shadow:0 4px 30px rgba(0,0,0,.4)}
-.v-book{margin-top:auto;align-self:flex-start;display:flex;align-items:center;gap:2.2cqw;padding:1.1cqw 1.1cqw 1.1cqw 2.2cqw;border-radius:1.6cqw;background:rgba(8,16,34,.55);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.14);font-size:1.1cqw;color:#CBD5E1}
-.v-book span{display:flex;flex-direction:column;gap:.3cqw}
-.v-book b{color:#fff;font-size:1.45cqw}
-.v-book em{font-style:normal;padding:1.1cqw 1.8cqw;border-radius:1cqw;background:linear-gradient(135deg,#67E8F9,#22D3EE 45%,#60A5FA);color:#04121F;font-weight:700;font-size:1.2cqw}
+@media (max-width:640px){.v-scene .palm{display:none}}
 /* reservation toast */
 .toast{position:absolute;left:-3%;top:58%;transform:translateZ(120px);display:flex;gap:10px;align-items:center;padding:12px 16px 12px 12px;border-radius:16px;background:rgba(15,23,42,.72);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.12);box-shadow:0 20px 40px -16px rgba(0,0,0,.7);white-space:nowrap;font-size:13px;color:#94A3B8}
 .toast .t-ic{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;background:rgba(34,211,238,.15);color:#67E8F9}
@@ -550,14 +530,18 @@ footer .copy{border-top:1px solid transparent;border-image:linear-gradient(90deg
 /* first screen = one full-bleed section: picture + copy, small margins all round */
 .hero{min-height:calc(100vh - 68px);min-height:calc(100svh - 68px);padding:20px 0 24px}
 .hero > .hero-wrap{width:100%;max-width:none;padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px));display:flex;align-items:center;justify-content:center}
-.hero-frame{--avail:calc(100svh - 68px - 44px - 36px - 74px);width:min(100%,calc((var(--avail) - 40px) * 16 / 8.4));display:flex;flex-direction:column;gap:36px}
+.hero-frame{--avail:calc(100svh - 68px - 44px - 28px - 118px);width:min(100%,calc((var(--avail) - 40px) * 16 / 8.4));display:flex;flex-direction:column;gap:28px}
 .hero-frame .stage{max-width:none;width:100%}
-.hero-frame .hero-copy{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin:0;grid-template-columns:none}
+.hero-frame .hero-copy{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin:0;grid-template-columns:none;border-top:1px solid rgba(255,255,255,.08);padding-top:20px}
+.hc-label{display:block;margin-bottom:8px;font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#D9B66E}
 .hero-frame .hero-copy .lead{margin:0;max-width:none;font-size:clamp(15px,1.35vw,19px);line-height:1.65;color:#AAB6CC}
 .hero-frame .link-arrow{gap:8px;flex:none;font-size:16px}
 .hero-frame .link-arrow .icon{width:18px;height:18px;color:#67E8F9}
 @media (max-width:640px){.hero{padding:16px 0 20px}.hero > .hero-wrap{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
   .hero-frame{width:100%;gap:40px}.hero-frame .villa{aspect-ratio:4/4.6}.hero-frame .hero-copy{flex-direction:column;align-items:flex-start;gap:14px}}
+.hero::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(120% 90% at 50% 40%,transparent 55%,rgba(2,4,12,.55) 100%)}
+.hero::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.07;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.hero > .hero-wrap{position:relative;z-index:1}
 </style>
 <script>
   try { if (!matchMedia('(prefers-reduced-motion: reduce)').matches) { document.documentElement.classList.add('intro'); setTimeout(function () { document.documentElement.classList.remove('intro'); }, 3500); } } catch (e) {}
@@ -621,17 +605,70 @@ footer .copy{border-top:1px solid transparent;border-image:linear-gradient(90deg
             <div class="win-top" data-intro="chrome"><i></i><i></i><i></i><span class="win-url"></span></div>
             <div class="villa" data-intro="villa">
               <div class="v-sky"><span class="v-moon"></span></div>
-              <div class="v-hills"></div>
-              <div class="v-house">
-                <span class="h-roof"></span><span class="h-main"></span><span class="h-wing"></span><span class="h-tree t1"></span><span class="h-tree t2"></span>
-              </div>
-              <div class="v-pool"><canvas class="water"></canvas><span class="v-glint"></span></div>
+              <svg class="v-scene" viewBox="0 0 1600 840" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+                <defs>
+                  <linearGradient id="vs-haze" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#94A3C8" stop-opacity="0"/><stop offset="1" stop-color="#94A3C8" stop-opacity=".22"/></linearGradient>
+                  <linearGradient id="vs-wall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#101A33"/><stop offset="1" stop-color="#0A1226"/></linearGradient>
+                  <linearGradient id="vs-glass" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFE9C0"/><stop offset=".55" stop-color="#F8C878"/><stop offset="1" stop-color="#E3A24E"/></linearGradient>
+                  <radialGradient id="vs-spill" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#FFC478" stop-opacity=".55"/><stop offset="1" stop-color="#FFC478" stop-opacity="0"/></radialGradient>
+                  <linearGradient id="vs-lamp" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFF4DA"/><stop offset="1" stop-color="#FFD58A" stop-opacity="0"/></linearGradient>
+                </defs>
+                <!-- horizon haze + far hills -->
+                <rect x="0" y="360" width="1600" height="180" fill="url(#vs-haze)"/>
+                <path d="M0 496C190 462 380 470 560 490C760 512 910 470 1110 478C1300 486 1450 460 1600 468V540H0Z" fill="#111C3A"/>
+                <path d="M0 520C240 500 420 508 620 516C860 526 1100 504 1320 510C1460 514 1540 506 1600 508V540H0Z" fill="#0C1530"/>
+                <!-- pines behind the wing -->
+                <g fill="#08112A"><path d="M1352 538L1384 430L1416 538Z"/><path d="M1396 538L1424 452L1452 538Z"/><path d="M1328 538L1350 472L1372 538Z"/></g>
+                <!-- palm, left -->
+                <g class="palm" fill="#070E22">
+                  <path d="M318 538C312 470 316 418 334 352L344 354C328 420 326 470 332 538Z"/>
+                  <path d="M339 352C300 326 250 330 212 362C258 344 300 344 336 360Z"/>
+                  <path d="M339 352C318 310 276 292 236 298C280 312 312 330 334 358Z"/>
+                  <path d="M339 352C350 306 386 284 424 286C390 304 362 326 344 358Z"/>
+                  <path d="M339 352C384 332 430 340 462 372C420 356 380 352 344 362Z"/>
+                  <path d="M339 352C330 386 306 410 278 424C302 400 318 378 334 350Z"/>
+                  <path d="M339 352C356 384 384 404 414 414C386 394 366 374 346 350Z"/>
+                </g>
+                <!-- house: main volume -->
+                <rect x="560" y="332" width="520" height="206" fill="url(#vs-wall)"/>
+                <rect x="1080" y="420" width="250" height="118" fill="#0C152C"/>
+                <g class="panes-off" fill="#111C33"><rect x="590" y="356" width="84" height="166"/><rect x="682" y="356" width="84" height="166"/><rect x="774" y="356" width="84" height="166"/><rect x="866" y="356" width="84" height="166"/><rect x="958" y="356" width="94" height="166"/><rect x="1104" y="440" width="202" height="80"/></g>
+                <g class="panes" fill="url(#vs-glass)">
+                  <rect class="pane" x="590" y="356" width="84" height="166"/>
+                  <rect class="pane" x="682" y="356" width="84" height="166"/>
+                  <rect class="pane" x="774" y="356" width="84" height="166"/>
+                  <rect class="pane" x="866" y="356" width="84" height="166"/>
+                  <rect class="pane" x="958" y="356" width="94" height="166"/>
+                  <rect class="pane" x="1104" y="440" width="202" height="80"/>
+                </g>
+                <!-- interior silhouettes (visible once lit) -->
+                <g class="inside" fill="#7A4A1C" fill-opacity=".38">
+                  <path d="M700 520V452H704V520Z"/><path d="M684 452L720 452L712 432L692 432Z"/>
+                  <path d="M790 520V494C790 486 796 482 804 482H900C908 482 914 486 914 494V520H904V500H800V520Z"/>
+                  <path d="M980 520V470H984V520Z"/><circle cx="982" cy="464" r="10"/>
+                  <path d="M1130 520V500H1200V520Z"/>
+                </g>
+                <rect class="lamp-cone" x="684" y="452" width="36" height="60" fill="url(#vs-lamp)" opacity=".5"/>
+                <!-- roof slabs with a warm underside line -->
+                <rect x="520" y="316" width="620" height="16" fill="#060B18"/><rect x="520" y="331" width="620" height="2" fill="#FFD9A0" opacity=".16"/>
+                <!-- wing -->
+                <rect x="1060" y="406" width="290" height="14" fill="#060B18"/>
+                <!-- deck, light spill, loungers -->
+                <rect x="380" y="524" width="1000" height="14" fill="#18223E"/>
+                <ellipse class="spill" cx="820" cy="530" rx="340" ry="14" fill="url(#vs-spill)"/>
+                <ellipse class="spill" cx="1205" cy="531" rx="150" ry="9" fill="url(#vs-spill)"/>
+                <g fill="#0A1124"><path d="M420 524H486L506 500L514 503L496 526H420Z"/><path d="M512 524H578L598 500L606 503L588 526H512Z"/></g>
+                <!-- pool coping -->
+                <rect x="0" y="536" width="1600" height="4" fill="#C8D2E6" opacity=".5"/>
+              </svg>
+              <div class="v-pool"><canvas class="water"></canvas></div>
             </div>
           </div>
         </div>
       </div>
       <div class="hero-copy" data-intro="copy">
-        <p class="lead">공간의 분위기와 온도까지 화면에 담습니다.<br>기획부터 디자인, 오픈까지 <span style="white-space:nowrap">O.Vue WEB</span>이 함께합니다.</p>
+        <div class="hc-text"><span class="hc-label en">O.Vue WEB — Website Creation</span>
+        <p class="lead">공간의 분위기와 온도까지 화면에 담습니다.<br>기획부터 디자인, 오픈까지 <span style="white-space:nowrap">O.Vue WEB</span>이 함께합니다.</p></div>
         <a href="#contact" class="link-arrow">상담 문의 <svg class="icon"><use href="#i-arrow"/></svg></a>
       </div>
       </div>
@@ -1054,18 +1091,19 @@ footer .copy{border-top:1px solid transparent;border-image:linear-gradient(90deg
         // 0.0–0.6s  gold frame (the logo's browser window) draws itself
         go(q('.win'), { opacity: [0, 1] }, { duration: 0.01 });
         go(rect, { strokeDashoffset: [1, 0], opacity: [1, 1] }, { duration: 0.7, ease: 'easeInOut' });
-        go(q('.win'), { backgroundColor: ['rgba(11,18,34,0)', 'rgba(11,18,34,1)'], boxShadow: ['0 0 0 0 rgba(0,0,0,0)', '0 50px 100px -40px rgba(0,0,0,.8), 0 0 0 1px rgba(255,255,255,.06), 0 0 80px -20px rgba(34,211,238,.25)'] }, { duration: 0.5, delay: 0.5 });
+        go(q('.win'), { backgroundColor: ['rgba(11,18,34,0)', 'rgba(11,18,34,1)'], boxShadow: ['0 0 0 0 rgba(0,0,0,0)', '0 40px 90px -40px rgba(0,0,0,.75), 0 0 0 1px rgba(255,255,255,.05)'] }, { duration: 0.5, delay: 0.5 });
         go(q('.win-top'), { opacity: [0, 1] }, { duration: 0.4, delay: 0.55 });
-        // 0.6–1.6s  night pool rises and fills the window
-        go(q('.villa'), { opacity: [1, 1], clipPath: ['inset(100% 0 0 0)', 'inset(0% 0 0 0)'] }, { duration: 1.0, delay: 0.6, ease: [0.65, 0, 0.35, 1] });
-        go(q('.villa'), { filter: ['brightness(1.8) saturate(.6)', 'brightness(1) saturate(1)'] }, { duration: 1.2, delay: 0.6 });
-        // 1.6–2.4s  the villa homepage assembles: nav → title → booking bar
-        hero.querySelectorAll('[data-build]').forEach((el, i) => go(el, { opacity: [0, 1], y: [18, 0], filter: ['blur(8px)', 'blur(0px)'] }, { duration: 0.5, delay: 1.55 + i * 0.22, ease: 'easeOut' }));
-        go(rect, { opacity: [1, 0.45] }, { duration: 0.6, delay: 1.8 });
-        // 2.4–3.0s  camera pulls back: window tilts into 3D, copy rises
-        go(q('.win'), { scale: [1.06, 1], rotateX: [0, 6], rotateY: [0, -5] }, { duration: 1.4, delay: 1.7, ease: [0.16, 1, 0.3, 1] });
-        go(q('.toast'), { opacity: [0, 1], x: [60, 0], z: [0, 120], scale: [0.8, 1] }, { duration: 0.7, delay: 2.55, ease: [0.16, 1, 0.3, 1] });
-        go(q('.hero-copy'), { opacity: [0, 1], y: [40, 0] }, { duration: 0.8, delay: 2.5, ease: [0.16, 1, 0.3, 1] });
+        // 0.6–1.4s  the night scene rises into the window (lights still off)
+        const panes = [...hero.querySelectorAll('.pane')], extras = [...hero.querySelectorAll('.inside, .lamp-cone, .spill')];
+        [...panes, ...extras].forEach(el => { el.style.opacity = '0'; });
+        go(q('.villa'), { opacity: [1, 1], clipPath: ['inset(100% 0 0 0)', 'inset(0% 0 0 0)'] }, { duration: 0.9, delay: 0.6, ease: [0.65, 0, 0.35, 1] });
+        // 1.4–2.4s  window lights switch on one by one, left to right (the pool reflections follow)
+        panes.forEach((el, i) => go(el, { opacity: [0, 1] }, { duration: 0.35, delay: 1.4 + i * 0.16, ease: 'easeOut' }));
+        extras.forEach(el => go(el, { opacity: [0, +(el.getAttribute('opacity') || 1)] }, { duration: 0.6, delay: 1.8, ease: 'easeOut' }));
+        go(rect, { opacity: [1, 0.38] }, { duration: 0.6, delay: 1.6 });
+        // 2.2–3.0s  gentle settle into a slight 3D angle, copy rises
+        go(q('.win'), { scale: [1.03, 1], rotateX: [0, 3], rotateY: [0, -2] }, { duration: 1.3, delay: 1.9, ease: [0.16, 1, 0.3, 1] });
+        go(q('.hero-copy'), { opacity: [0, 1], y: [24, 0] }, { duration: 0.8, delay: 2.4, ease: [0.16, 1, 0.3, 1] });
         // skip
         const skip = hero.querySelector('.skip-intro');
         if (!fast && skip) {
@@ -1077,7 +1115,7 @@ footer .copy{border-top:1px solid transparent;border-image:linear-gradient(90deg
         const win = q('.win'), stg = q('.stage-scroll');
         if (fine) hero.addEventListener('pointermove', e => {
           const px = e.clientX / innerWidth - 0.5, py = e.clientY / innerHeight - 0.5;
-          animate(win, { rotateY: -5 + px * 10, rotateX: 6 - py * 6 }, { duration: 0.7, ease: 'easeOut' });
+          animate(win, { rotateY: -2 + px * 5, rotateX: 3 - py * 3 }, { duration: 0.9, ease: 'easeOut' });
         });
         scroll(animate(stg, { y: [0, 90], scale: [1, 0.94], opacity: [1, 0.6] }, { ease: 'linear' }), { target: hero, offset: ['start start', 'end start'] });
       })();
@@ -1131,24 +1169,31 @@ footer .copy{border-top:1px solid transparent;border-image:linear-gradient(90deg
   })();
 </script>
 <script>
-  // Night-pool water surface (WebGL fragment shader, own code). Pauses off-screen; one still frame under reduced motion.
+  // Night-pool surface (WebGL, own shader): calm stylised ripples, warm window + moon reflections that wobble and break,
+  // three underwater pool lights near the far wall. Reflections follow the lit windows in the SVG. Pauses off-screen.
   (function () {
     const cv = document.querySelector('.water'); if (!cv) return;
     const gl = cv.getContext('webgl', { premultipliedAlpha: false, antialias: false }); if (!gl) return;
     const vs = 'attribute vec2 p;void main(){gl_Position=vec4(p,0.,1.);}';
-    const fs = `precision mediump float;uniform vec2 r;uniform float t;uniform vec2 m;
-      float wave(vec2 p,float t){vec2 q=p;for(int i=0;i<4;i++){float fi=float(i);q+=vec2(sin(q.y*1.6+t*.8+fi*1.3),cos(q.x*1.4-t*.6+fi*2.1))*.38;}
-        float v=sin(q.x*2.6)*sin(q.y*2.6);return pow(1.-abs(v),7.);}
-      void main(){vec2 uv=gl_FragCoord.xy/r;float y=1.-uv.y;             /* y: 0 at pool edge, 1 at front */
-        vec2 p=vec2((uv.x-.5)*r.x/r.y/(.35+y*.9)*3.,1.6/(.25+y)) ;          /* fake perspective */
-        float c=wave(p*1.1,t)*.7+wave(p*2.3+7.,t*1.3)*.35;
-        vec3 deep=vec3(.02,.12,.24),mid=vec3(.03,.38,.55),lit=vec3(.55,.95,1.);
-        vec3 col=mix(mid,deep,smoothstep(0.,1.,y));
-        col+=lit*c*(.35+.45*(1.-y));
-        float warm=exp(-pow((uv.x-.53)*4.2,2.))*smoothstep(.95,.1,y);  /* villa window reflection */
-        col+=vec3(1.,.72,.3)*warm*(.25+.35*c);
-        vec2 mm=m;float d=distance(uv*vec2(r.x/r.y,1.),mm*vec2(r.x/r.y,1.));
-        col+=vec3(.6,1.,1.)*exp(-d*d*28.)*.35*(.6+c);                      /* cursor light */
+    const fs = `precision mediump float;
+      uniform vec2 r;uniform float t;uniform vec2 m;uniform vec3 w[6];uniform vec2 mo;
+      float h(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}
+      float n(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(h(i),h(i+vec2(1.,0.)),f.x),mix(h(i+vec2(0.,1.)),h(i+vec2(1.,1.)),f.x),f.y);}
+      void main(){
+        vec2 uv=gl_FragCoord.xy/r;float y=1.-uv.y;float asp=r.x/r.y;
+        float z=1./(y+.14);                                         /* depth: dense ripples near the edge, wide in front */
+        float wob=n(vec2(uv.x*asp*1.6,z*.9-t*.18))*2.-1.;
+        float rip=sin(z*13.+wob*2.4-t*.9);
+        vec3 col=mix(vec3(.045,.17,.24),vec3(.012,.045,.09),smoothstep(0.,1.,y));
+        for(int i=0;i<3;i++){float fx=.25+.25*float(i);vec2 d=vec2((uv.x-fx)*asp*.9,(y-.2)*1.7);col+=vec3(.04,.42,.48)*exp(-dot(d,d)*7.)*.55;}
+        float xo=uv.x+wob*.012*(.25+y);
+        float brk=smoothstep(.05,.95,sin(z*11.+wob*3.1-t*1.0)*.5+.5);
+        for(int i=0;i<6;i++){vec3 W=w[i];
+          float inX=smoothstep(W.x-.003,W.x+.008,xo)*(1.-smoothstep(W.y-.008,W.y+.003,xo));
+          col+=vec3(1.,.70,.36)*inX*exp(-y*2.0)*W.z*(.35+.45*brk)*.42;}
+        float dm=abs(xo-mo.x)*asp;col+=vec3(.98,.93,.78)*exp(-dm*dm*700.)*(.3+.7*brk)*exp(-y*1.2)*mo.y*.45;
+        float gap=smoothstep(.35,.75,n(vec2(uv.x*asp*3.,z*1.7+t*.12)));col+=vec3(.55,.85,.92)*smoothstep(.93,1.,rip)*gap*(.03+.08*(1.-y));
+        vec2 cm=vec2((uv.x-m.x)*asp,uv.y-m.y);col+=vec3(.45,.8,.9)*exp(-dot(cm,cm)*26.)*.10*(.6+.4*rip);
         gl_FragColor=vec4(col,1.);}`;
     const sh = (type, src) => { const s = gl.createShader(type); gl.shaderSource(s, src); gl.compileShader(s); return s; };
     const pr = gl.createProgram(); gl.attachShader(pr, sh(gl.VERTEX_SHADER, vs)); gl.attachShader(pr, sh(gl.FRAGMENT_SHADER, fs)); gl.linkProgram(pr);
@@ -1156,15 +1201,23 @@ footer .copy{border-top:1px solid transparent;border-image:linear-gradient(90deg
     gl.useProgram(pr);
     const b = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, b); gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1,1,-1,-1,1,1,1]), gl.STATIC_DRAW);
     const loc = gl.getAttribLocation(pr, 'p'); gl.enableVertexAttribArray(loc); gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
-    const uR = gl.getUniformLocation(pr, 'r'), uT = gl.getUniformLocation(pr, 't'), uM = gl.getUniformLocation(pr, 'm');
-    let mx = .5, my = .6, tx = .5, ty = .6, raf = 0, vis = false, t0 = performance.now();
+    const U = k => gl.getUniformLocation(pr, k), uR = U('r'), uT = U('t'), uM = U('m'), uW = U('w'), uMo = U('mo');
+    const panes = [...document.querySelectorAll('.v-scene .pane')], moon = document.querySelector('.v-moon');
+    let spans = [], moonX = .7, mx = .5, my = .5, tx = .5, ty = .5, raf = 0, vis = false; const t0 = performance.now();
     const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const size = () => { const d = Math.min(devicePixelRatio || 1, 1.5); cv.width = Math.max(1, cv.clientWidth * d | 0); cv.height = Math.max(1, cv.clientHeight * d | 0); gl.viewport(0, 0, cv.width, cv.height); };
-    const draw = now => { mx += (tx - mx) * .08; my += (ty - my) * .08;
-      gl.uniform2f(uR, cv.width, cv.height); gl.uniform1f(uT, (now - t0) / 1000); gl.uniform2f(uM, mx, my); gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4); };
+    const measure = () => { const c = cv.getBoundingClientRect(); if (!c.width) return;
+      spans = panes.map(p => { const r = p.getBoundingClientRect(); return [(r.left - c.left) / c.width, (r.right - c.left) / c.width]; });
+      if (moon) { const r = moon.getBoundingClientRect(); moonX = (r.left + r.width / 2 - c.left) / c.width; } };
+    const size = () => { const d = Math.min(devicePixelRatio || 1, 1.5); cv.width = Math.max(1, cv.clientWidth * d | 0); cv.height = Math.max(1, cv.clientHeight * d | 0); gl.viewport(0, 0, cv.width, cv.height); measure(); };
+    const lit = el => { const o = el.style.opacity; return o === '' ? 1 : +o; };
+    const draw = now => { mx += (tx - mx) * .06; my += (ty - my) * .06;
+      const arr = new Float32Array(18); panes.forEach((p, i) => { const s = spans[i] || [-1, -1]; arr.set([s[0], s[1], lit(p)], i * 3); });
+      gl.uniform2f(uR, cv.width, cv.height); gl.uniform1f(uT, (now - t0) / 1000); gl.uniform2f(uM, mx, my); gl.uniform3fv(uW, arr);
+      gl.uniform2f(uMo, moonX, moon ? 1 : 0); gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4); };
     const tick = now => { draw(now); if (vis) raf = requestAnimationFrame(tick); };
     addEventListener('pointermove', e => { const r = cv.getBoundingClientRect(); tx = (e.clientX - r.left) / r.width; ty = 1 - (e.clientY - r.top) / r.height; }, { passive: true });
     size(); draw(t0 + 4000); addEventListener('resize', () => { size(); draw(performance.now()); });
+    setInterval(measure, 500);                                   /* keep reflections aligned while the window tilts */
     if (!reduce && 'IntersectionObserver' in window) new IntersectionObserver(es => { vis = es[0].isIntersecting; cancelAnimationFrame(raf); if (vis) raf = requestAnimationFrame(tick); }).observe(cv);
   })();
 </script>
